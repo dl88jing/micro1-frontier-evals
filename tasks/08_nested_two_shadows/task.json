@@ -1,0 +1,9 @@
+{
+  "id": "08_nested_two_shadows",
+  "title": "Two shadowed names in nested class body",
+  "category": "legb_class_body",
+  "difficulty": "hard",
+  "failure_mode": "Models sequentially bind `a`/`b` from the enclosing function and ignore whole-body class-local rules for both names.",
+  "python": "3.13",
+  "probe_fails": ">=2 of wonder/spark/beam (see results/probe_*.json)"
+}

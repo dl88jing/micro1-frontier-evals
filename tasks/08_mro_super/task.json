@@ -1,8 +1,0 @@
-{
-  "id": "08_mro_super",
-  "title": "Cooperative super MRO",
-  "category": "object_model",
-  "difficulty": "hard",
-  "failure_mode": "Models reorder MRO (B before C) or break cooperative super chaining.",
-  "python": "3.13"
-}
