@@ -1,0 +1,9 @@
+{
+  "id": "09_pep695_type_param",
+  "title": "PEP 695 type-param scope vs class assign",
+  "category": "legb_class_body",
+  "difficulty": "hard",
+  "failure_mode": "Models mishandle PEP 695 type-parameter scopes when the same name is later assigned in the class body.",
+  "python": "3.13",
+  "probe_fails": ">=2 of wonder/spark/beam (see results/probe_*.json)"
+}
