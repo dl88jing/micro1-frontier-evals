@@ -14,7 +14,8 @@
 | ZIP | `/workspace/micro1-eval/micro1-frontier-evals.zip` |
 | Results page | https://pyscope-evals.vercel.app |
 | Demo video (HR / v1.1.0) | https://github.com/dl88jing/micro1-frontier-evals/releases/download/v1.1.0/pyscope-demo.mp4 |
-| Demo video v2 (screen recording) | https://github.com/dl88jing/micro1-frontier-evals/releases/download/v1.2.0/pyscope-demo-v2.mp4 |
+| Demo video v2 (YouTube) | https://youtu.be/sVFSqWVqjPk |
+| Demo video v2 (MP4 fallback) | https://github.com/dl88jing/micro1-frontier-evals/releases/download/v1.2.0/pyscope-demo-v2.mp4 |
 | Release | https://github.com/dl88jing/micro1-frontier-evals/releases/tag/v1.1.0 |
 
 ## Theme
@@ -73,7 +74,7 @@ Exact Instructions page is behind HackerRank auth. From public FAQ:
 - **Deadline:** Nov 9 05:15 GMT = **Nov 8, 9:15 PM America/Los_Angeles**  
 - Winners announced Nov 23  
 
-**Status (2026-10-31 ~11:00 PM PT):** HackerRank form submission is FINAL (cannot re-save on HR). **v1.1.0 release assets unchanged** (match submitted zip/demo). Additive polish: **v1.2.0** adds a Playwright screen-recording demo (`pyscope-demo-v2.mp4`) linked from README + results page.
+**Status (2026-10-31 ~11:00 PM PT):** HackerRank form submission is FINAL (cannot re-save on HR). **v1.1.0 release assets unchanged** (match submitted zip/demo). Additive polish: **v1.2.0** adds a Playwright screen-recording demo — **YouTube** https://youtu.be/sVFSqWVqjPk · **MP4** `pyscope-demo-v2.mp4` — linked from README + results page.
 
 **Blocked for this agent:** re-opening the HackerRank form (platform says submission is final). Dylan already submitted.
 
