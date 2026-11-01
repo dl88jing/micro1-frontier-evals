@@ -218,6 +218,14 @@
     },
     {
       "task": "10_walrus_and_default",
+      "model": "Beam-1.0-501B-A23B",
+      "pass": false,
+      "pass_at_1": 0.6666666666666666,
+      "trials": 3,
+      "detail": "pass@1=0.667 over 3 trials"
+    },
+    {
+      "task": "10_walrus_and_default",
       "model": "muse-spark-open-1026",
       "pass": false,
       "pass_at_1": 0.0,
@@ -1168,12 +1176,67 @@
       "seconds": 29.75,
       "error": null,
       "raw": "results/raw/10_walrus_and_default__muse-spark-open-1026__t3.txt"
+    },
+    {
+      "task": "07_method_reads_shadow",
+      "model": "muse-wonder-1.0",
+      "trial": 3,
+      "pass": false,
+      "detail": "could not parse JSON from model output",
+      "tokens": 16384,
+      "seconds": 284.51,
+      "error": null,
+      "raw": "results/raw/07_method_reads_shadow__muse-wonder-1.0__t3.txt"
+    },
+    {
+      "task": "10_walrus_and_default",
+      "model": "muse-wonder-1.0",
+      "trial": 1,
+      "pass": false,
+      "detail": "stdout: got=\"SyntaxError|['o']\" expected='SyntaxError|NameError'",
+      "tokens": 14307,
+      "seconds": 138.14,
+      "error": null,
+      "raw": "results/raw/10_walrus_and_default__muse-wonder-1.0__t1.txt"
+    },
+    {
+      "task": "10_walrus_and_default",
+      "model": "Beam-1.0-501B-A23B",
+      "trial": 1,
+      "pass": false,
+      "detail": "stdout: got='ok|NameError' expected='SyntaxError|NameError'",
+      "tokens": 9040,
+      "seconds": 77.46,
+      "error": null,
+      "raw": "results/raw/10_walrus_and_default__Beam-1.0-501B-A23B__t1.txt"
+    },
+    {
+      "task": "10_walrus_and_default",
+      "model": "Beam-1.0-501B-A23B",
+      "trial": 2,
+      "pass": true,
+      "detail": "exact match",
+      "tokens": 7089,
+      "seconds": 47.49,
+      "error": null,
+      "raw": "results/raw/10_walrus_and_default__Beam-1.0-501B-A23B__t2.txt"
+    },
+    {
+      "task": "10_walrus_and_default",
+      "model": "Beam-1.0-501B-A23B",
+      "trial": 3,
+      "pass": true,
+      "detail": "exact match",
+      "tokens": 5057,
+      "seconds": 43.73,
+      "error": null,
+      "raw": "results/raw/10_walrus_and_default__Beam-1.0-501B-A23B__t3.txt"
     }
   ],
   "by_model": {
     "Beam-1.0-501B-A23B": {
-      "pass_at_1_mean": 0.7778,
-      "tasks": 9,
+      "pass_at_1_mean": 0.7667,
+      "tasks": 10,
       "tasks_all_pass": 5,
       "tasks_all_fail": 0
     },
@@ -1237,6 +1300,7 @@
       "muse-wonder-1.0": 0.0
     },
     "10_walrus_and_default": {
+      "Beam-1.0-501B-A23B": 0.6666666666666666,
       "muse-spark-open-1026": 0.0,
       "muse-wonder-1.0": 0.0
     }

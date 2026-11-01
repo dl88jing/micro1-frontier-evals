@@ -220,3 +220,171 @@ RUN 10_walrus_and_default muse-spark-open-1026 t2...
 RUN 10_walrus_and_default muse-spark-open-1026 t3...
   -> FAIL stdout: got="ok|['o']" expected='SyntaxError|NameError'
 RUN 10_walrus_and_default Beam-1.0-501B-A23B t1...
+CLIENTS ['muse-wonder-1.0', 'muse-spark-open-1026', 'Beam-1.0-501B-A23B']
+SKIP 01_listcomp_class muse-wonder-1.0 t1
+SKIP 01_listcomp_class muse-wonder-1.0 t2
+SKIP 01_listcomp_class muse-wonder-1.0 t3
+SKIP 01_listcomp_class muse-spark-open-1026 t1
+SKIP 01_listcomp_class muse-spark-open-1026 t2
+SKIP 01_listcomp_class muse-spark-open-1026 t3
+SKIP 01_listcomp_class Beam-1.0-501B-A23B t1
+SKIP 01_listcomp_class Beam-1.0-501B-A23B t2
+SKIP 01_listcomp_class Beam-1.0-501B-A23B t3
+SKIP 02_nested_listcomp muse-wonder-1.0 t1
+SKIP 02_nested_listcomp muse-wonder-1.0 t2
+SKIP 02_nested_listcomp muse-wonder-1.0 t3
+SKIP 02_nested_listcomp muse-spark-open-1026 t1
+SKIP 02_nested_listcomp muse-spark-open-1026 t2
+SKIP 02_nested_listcomp muse-spark-open-1026 t3
+SKIP 02_nested_listcomp Beam-1.0-501B-A23B t1
+SKIP 02_nested_listcomp Beam-1.0-501B-A23B t2
+SKIP 02_nested_listcomp Beam-1.0-501B-A23B t3
+SKIP 03_class_local_bind muse-wonder-1.0 t1
+SKIP 03_class_local_bind muse-wonder-1.0 t2
+SKIP 03_class_local_bind muse-wonder-1.0 t3
+SKIP 03_class_local_bind muse-spark-open-1026 t1
+SKIP 03_class_local_bind muse-spark-open-1026 t2
+SKIP 03_class_local_bind muse-spark-open-1026 t3
+SKIP 03_class_local_bind Beam-1.0-501B-A23B t1
+SKIP 03_class_local_bind Beam-1.0-501B-A23B t2
+SKIP 03_class_local_bind Beam-1.0-501B-A23B t3
+SKIP 04_default_shadow muse-wonder-1.0 t1
+SKIP 04_default_shadow muse-wonder-1.0 t2
+SKIP 04_default_shadow muse-wonder-1.0 t3
+SKIP 04_default_shadow muse-spark-open-1026 t1
+SKIP 04_default_shadow muse-spark-open-1026 t2
+SKIP 04_default_shadow muse-spark-open-1026 t3
+SKIP 04_default_shadow Beam-1.0-501B-A23B t1
+SKIP 04_default_shadow Beam-1.0-501B-A23B t2
+SKIP 04_default_shadow Beam-1.0-501B-A23B t3
+SKIP 05_genexp_late_bind muse-wonder-1.0 t1
+SKIP 05_genexp_late_bind muse-wonder-1.0 t2
+SKIP 05_genexp_late_bind muse-wonder-1.0 t3
+SKIP 05_genexp_late_bind muse-spark-open-1026 t1
+SKIP 05_genexp_late_bind muse-spark-open-1026 t2
+SKIP 05_genexp_late_bind muse-spark-open-1026 t3
+SKIP 05_genexp_late_bind Beam-1.0-501B-A23B t1
+SKIP 05_genexp_late_bind Beam-1.0-501B-A23B t2
+SKIP 05_genexp_late_bind Beam-1.0-501B-A23B t3
+SKIP 06_default_fallthrough muse-wonder-1.0 t1
+SKIP 06_default_fallthrough muse-wonder-1.0 t2
+SKIP 06_default_fallthrough muse-wonder-1.0 t3
+SKIP 06_default_fallthrough muse-spark-open-1026 t1
+SKIP 06_default_fallthrough muse-spark-open-1026 t2
+SKIP 06_default_fallthrough muse-spark-open-1026 t3
+SKIP 06_default_fallthrough Beam-1.0-501B-A23B t1
+SKIP 06_default_fallthrough Beam-1.0-501B-A23B t2
+SKIP 06_default_fallthrough Beam-1.0-501B-A23B t3
+SKIP 07_method_reads_shadow muse-wonder-1.0 t1
+SKIP 07_method_reads_shadow muse-wonder-1.0 t2
+RUN 07_method_reads_shadow muse-wonder-1.0 t3...
+  -> FAIL could not parse JSON from model output
+SKIP 07_method_reads_shadow muse-spark-open-1026 t1
+SKIP 07_method_reads_shadow muse-spark-open-1026 t2
+SKIP 07_method_reads_shadow muse-spark-open-1026 t3
+SKIP 07_method_reads_shadow Beam-1.0-501B-A23B t1
+SKIP 07_method_reads_shadow Beam-1.0-501B-A23B t2
+SKIP 07_method_reads_shadow Beam-1.0-501B-A23B t3
+SKIP 08_nested_two_shadows muse-wonder-1.0 t1
+SKIP 08_nested_two_shadows muse-wonder-1.0 t2
+SKIP 08_nested_two_shadows muse-wonder-1.0 t3
+SKIP 08_nested_two_shadows muse-spark-open-1026 t1
+SKIP 08_nested_two_shadows muse-spark-open-1026 t2
+SKIP 08_nested_two_shadows muse-spark-open-1026 t3
+SKIP 08_nested_two_shadows Beam-1.0-501B-A23B t1
+SKIP 08_nested_two_shadows Beam-1.0-501B-A23B t2
+SKIP 08_nested_two_shadows Beam-1.0-501B-A23B t3
+SKIP 09_pep695_type_param muse-wonder-1.0 t1
+SKIP 09_pep695_type_param muse-wonder-1.0 t2
+SKIP 09_pep695_type_param muse-wonder-1.0 t3
+SKIP 09_pep695_type_param muse-spark-open-1026 t1
+SKIP 09_pep695_type_param muse-spark-open-1026 t2
+SKIP 09_pep695_type_param muse-spark-open-1026 t3
+SKIP 09_pep695_type_param Beam-1.0-501B-A23B t1
+SKIP 09_pep695_type_param Beam-1.0-501B-A23B t2
+SKIP 09_pep695_type_param Beam-1.0-501B-A23B t3
+RUN 10_walrus_and_default muse-wonder-1.0 t1...
+  -> FAIL stdout: got="SyntaxError|['o']" expected='SyntaxError|NameError'
+SKIP 10_walrus_and_default muse-wonder-1.0 t2
+SKIP 10_walrus_and_default muse-wonder-1.0 t3
+SKIP 10_walrus_and_default muse-spark-open-1026 t1
+SKIP 10_walrus_and_default muse-spark-open-1026 t2
+SKIP 10_walrus_and_default muse-spark-open-1026 t3
+RUN 10_walrus_and_default Beam-1.0-501B-A23B t1...
+  -> FAIL stdout: got='ok|NameError' expected='SyntaxError|NameError'
+RUN 10_walrus_and_default Beam-1.0-501B-A23B t2...
+  -> PASS exact match
+RUN 10_walrus_and_default Beam-1.0-501B-A23B t3...
+  -> PASS exact match
+{
+  "Beam-1.0-501B-A23B": {
+    "pass_at_1_mean": 0.7667,
+    "tasks": 10,
+    "tasks_all_pass": 5,
+    "tasks_all_fail": 0
+  },
+  "muse-spark-open-1026": {
+    "pass_at_1_mean": 0.1333,
+    "tasks": 10,
+    "tasks_all_pass": 0,
+    "tasks_all_fail": 8
+  },
+  "muse-wonder-1.0": {
+    "pass_at_1_mean": 0.0667,
+    "tasks": 10,
+    "tasks_all_pass": 0,
+    "tasks_all_fail": 9
+  }
+}
+{
+  "01_listcomp_class": {
+    "Beam-1.0-501B-A23B": 0.6666666666666666,
+    "muse-spark-open-1026": 0.6666666666666666,
+    "muse-wonder-1.0": 0.0
+  },
+  "02_nested_listcomp": {
+    "Beam-1.0-501B-A23B": 0.3333333333333333,
+    "muse-spark-open-1026": 0.6666666666666666,
+    "muse-wonder-1.0": 0.0
+  },
+  "03_class_local_bind": {
+    "Beam-1.0-501B-A23B": 1.0,
+    "muse-spark-open-1026": 0.0,
+    "muse-wonder-1.0": 0.6666666666666666
+  },
+  "04_default_shadow": {
+    "Beam-1.0-501B-A23B": 0.6666666666666666,
+    "muse-spark-open-1026": 0.0,
+    "muse-wonder-1.0": 0.0
+  },
+  "05_genexp_late_bind": {
+    "Beam-1.0-501B-A23B": 1.0,
+    "muse-spark-open-1026": 0.0,
+    "muse-wonder-1.0": 0.0
+  },
+  "06_default_fallthrough": {
+    "Beam-1.0-501B-A23B": 1.0,
+    "muse-spark-open-1026": 0.0,
+    "muse-wonder-1.0": 0.0
+  },
+  "07_method_reads_shadow": {
+    "Beam-1.0-501B-A23B": 1.0,
+    "muse-spark-open-1026": 0.0,
+    "muse-wonder-1.0": 0.0
+  },
+  "08_nested_two_shadows": {
+    "Beam-1.0-501B-A23B": 1.0,
+    "muse-spark-open-1026": 0.0,
+    "muse-wonder-1.0": 0.0
+  },
+  "09_pep695_type_param": {
+    "Beam-1.0-501B-A23B": 0.3333333333333333,
+    "muse-spark-open-1026": 0.0,
+    "muse-wonder-1.0": 0.0
+  },
+  "10_walrus_and_default": {
+    "Beam-1.0-501B-A23B": 0.6666666666666666,
+    "muse-spark-open-1026": 0.0,
+    "muse-wonder-1.0": 0.0
+  }
+}
