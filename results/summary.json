@@ -170,11 +170,67 @@
     },
     {
       "task": "08_nested_two_shadows",
+      "model": "Beam-1.0-501B-A23B",
+      "pass": true,
+      "pass_at_1": 1.0,
+      "trials": 3,
+      "detail": "pass@1=1.000 over 3 trials"
+    },
+    {
+      "task": "08_nested_two_shadows",
+      "model": "muse-spark-open-1026",
+      "pass": false,
+      "pass_at_1": 0.0,
+      "trials": 3,
+      "detail": "pass@1=0.000 over 3 trials"
+    },
+    {
+      "task": "08_nested_two_shadows",
       "model": "muse-wonder-1.0",
       "pass": false,
       "pass_at_1": 0.0,
-      "trials": 2,
-      "detail": "pass@1=0.000 over 2 trials"
+      "trials": 3,
+      "detail": "pass@1=0.000 over 3 trials"
+    },
+    {
+      "task": "09_pep695_type_param",
+      "model": "Beam-1.0-501B-A23B",
+      "pass": false,
+      "pass_at_1": 0.3333333333333333,
+      "trials": 3,
+      "detail": "pass@1=0.333 over 3 trials"
+    },
+    {
+      "task": "09_pep695_type_param",
+      "model": "muse-spark-open-1026",
+      "pass": false,
+      "pass_at_1": 0.0,
+      "trials": 3,
+      "detail": "pass@1=0.000 over 3 trials"
+    },
+    {
+      "task": "09_pep695_type_param",
+      "model": "muse-wonder-1.0",
+      "pass": false,
+      "pass_at_1": 0.0,
+      "trials": 3,
+      "detail": "pass@1=0.000 over 3 trials"
+    },
+    {
+      "task": "10_walrus_and_default",
+      "model": "muse-spark-open-1026",
+      "pass": false,
+      "pass_at_1": 0.0,
+      "trials": 3,
+      "detail": "pass@1=0.000 over 3 trials"
+    },
+    {
+      "task": "10_walrus_and_default",
+      "model": "muse-wonder-1.0",
+      "pass": false,
+      "pass_at_1": 0.0,
+      "trials": 3,
+      "detail": "pass@1=0.000 over 3 trials"
     }
   ],
   "trials": [
@@ -796,17 +852,6 @@
     },
     {
       "task": "07_method_reads_shadow",
-      "model": "muse-wonder-1.0",
-      "trial": 3,
-      "pass": false,
-      "detail": "could not parse JSON from model output",
-      "tokens": 16384,
-      "seconds": 428.47,
-      "error": null,
-      "raw": "results/raw/07_method_reads_shadow__muse-wonder-1.0__t3.txt"
-    },
-    {
-      "task": "07_method_reads_shadow",
       "model": "muse-spark-open-1026",
       "trial": 1,
       "pass": false,
@@ -892,26 +937,257 @@
       "seconds": 48.43,
       "error": null,
       "raw": "results/raw/08_nested_two_shadows__muse-wonder-1.0__t2.txt"
+    },
+    {
+      "task": "08_nested_two_shadows",
+      "model": "muse-wonder-1.0",
+      "trial": 3,
+      "pass": false,
+      "detail": "stdout: got='(1, 2, (1, 2), 10, 20)' expected='NameError'",
+      "tokens": 9150,
+      "seconds": 260.54,
+      "error": null,
+      "raw": "results/raw/08_nested_two_shadows__muse-wonder-1.0__t3.txt"
+    },
+    {
+      "task": "08_nested_two_shadows",
+      "model": "muse-spark-open-1026",
+      "trial": 1,
+      "pass": false,
+      "detail": "stdout: got='(1, 2, (1, 2), 10, 20)' expected='NameError'",
+      "tokens": 3457,
+      "seconds": 12.31,
+      "error": null,
+      "raw": "results/raw/08_nested_two_shadows__muse-spark-open-1026__t1.txt"
+    },
+    {
+      "task": "08_nested_two_shadows",
+      "model": "muse-spark-open-1026",
+      "trial": 2,
+      "pass": false,
+      "detail": "stdout: got='(1, 2, (1, 2), 10, 20)' expected='NameError'",
+      "tokens": 3113,
+      "seconds": 10.41,
+      "error": null,
+      "raw": "results/raw/08_nested_two_shadows__muse-spark-open-1026__t2.txt"
+    },
+    {
+      "task": "08_nested_two_shadows",
+      "model": "muse-spark-open-1026",
+      "trial": 3,
+      "pass": false,
+      "detail": "stdout: got='(1, 2, (1, 2), 10, 20)' expected='NameError'",
+      "tokens": 5590,
+      "seconds": 20.36,
+      "error": null,
+      "raw": "results/raw/08_nested_two_shadows__muse-spark-open-1026__t3.txt"
+    },
+    {
+      "task": "08_nested_two_shadows",
+      "model": "Beam-1.0-501B-A23B",
+      "trial": 1,
+      "pass": true,
+      "detail": "exact match",
+      "tokens": 3910,
+      "seconds": 25.8,
+      "error": null,
+      "raw": "results/raw/08_nested_two_shadows__Beam-1.0-501B-A23B__t1.txt"
+    },
+    {
+      "task": "08_nested_two_shadows",
+      "model": "Beam-1.0-501B-A23B",
+      "trial": 2,
+      "pass": true,
+      "detail": "exact match",
+      "tokens": 7507,
+      "seconds": 57.36,
+      "error": null,
+      "raw": "results/raw/08_nested_two_shadows__Beam-1.0-501B-A23B__t2.txt"
+    },
+    {
+      "task": "08_nested_two_shadows",
+      "model": "Beam-1.0-501B-A23B",
+      "trial": 3,
+      "pass": true,
+      "detail": "exact match",
+      "tokens": 4864,
+      "seconds": 26.0,
+      "error": null,
+      "raw": "results/raw/08_nested_two_shadows__Beam-1.0-501B-A23B__t3.txt"
+    },
+    {
+      "task": "09_pep695_type_param",
+      "model": "muse-wonder-1.0",
+      "trial": 1,
+      "pass": false,
+      "detail": "stdout: got='T cls cls T' expected='mod cls cls T'",
+      "tokens": 9405,
+      "seconds": 65.86,
+      "error": null,
+      "raw": "results/raw/09_pep695_type_param__muse-wonder-1.0__t1.txt"
+    },
+    {
+      "task": "09_pep695_type_param",
+      "model": "muse-wonder-1.0",
+      "trial": 2,
+      "pass": false,
+      "detail": "stdout: got='T cls cls T' expected='mod cls cls T'",
+      "tokens": 13906,
+      "seconds": 107.88,
+      "error": null,
+      "raw": "results/raw/09_pep695_type_param__muse-wonder-1.0__t2.txt"
+    },
+    {
+      "task": "09_pep695_type_param",
+      "model": "muse-wonder-1.0",
+      "trial": 3,
+      "pass": false,
+      "detail": "stdout: got='T cls cls T' expected='mod cls cls T'",
+      "tokens": 13303,
+      "seconds": 88.61,
+      "error": null,
+      "raw": "results/raw/09_pep695_type_param__muse-wonder-1.0__t3.txt"
+    },
+    {
+      "task": "09_pep695_type_param",
+      "model": "muse-spark-open-1026",
+      "trial": 1,
+      "pass": false,
+      "detail": "stdout: got='T cls cls T' expected='mod cls cls T'",
+      "tokens": 7260,
+      "seconds": 24.99,
+      "error": null,
+      "raw": "results/raw/09_pep695_type_param__muse-spark-open-1026__t1.txt"
+    },
+    {
+      "task": "09_pep695_type_param",
+      "model": "muse-spark-open-1026",
+      "trial": 2,
+      "pass": false,
+      "detail": "stdout: got='T cls cls T' expected='mod cls cls T'",
+      "tokens": 10373,
+      "seconds": 35.08,
+      "error": null,
+      "raw": "results/raw/09_pep695_type_param__muse-spark-open-1026__t2.txt"
+    },
+    {
+      "task": "09_pep695_type_param",
+      "model": "muse-spark-open-1026",
+      "trial": 3,
+      "pass": false,
+      "detail": "stdout: got='T cls cls T' expected='mod cls cls T'",
+      "tokens": 4010,
+      "seconds": 14.52,
+      "error": null,
+      "raw": "results/raw/09_pep695_type_param__muse-spark-open-1026__t3.txt"
+    },
+    {
+      "task": "09_pep695_type_param",
+      "model": "Beam-1.0-501B-A23B",
+      "trial": 1,
+      "pass": true,
+      "detail": "exact match",
+      "tokens": 8789,
+      "seconds": 63.15,
+      "error": null,
+      "raw": "results/raw/09_pep695_type_param__Beam-1.0-501B-A23B__t1.txt"
+    },
+    {
+      "task": "09_pep695_type_param",
+      "model": "Beam-1.0-501B-A23B",
+      "trial": 2,
+      "pass": false,
+      "detail": "stdout: got='~T cls cls T' expected='mod cls cls T'",
+      "tokens": 6593,
+      "seconds": 44.58,
+      "error": null,
+      "raw": "results/raw/09_pep695_type_param__Beam-1.0-501B-A23B__t2.txt"
+    },
+    {
+      "task": "09_pep695_type_param",
+      "model": "Beam-1.0-501B-A23B",
+      "trial": 3,
+      "pass": false,
+      "detail": "stdout: got='~T cls cls T' expected='mod cls cls T'",
+      "tokens": 5579,
+      "seconds": 36.61,
+      "error": null,
+      "raw": "results/raw/09_pep695_type_param__Beam-1.0-501B-A23B__t3.txt"
+    },
+    {
+      "task": "10_walrus_and_default",
+      "model": "muse-wonder-1.0",
+      "trial": 2,
+      "pass": false,
+      "detail": "stdout: got=\"SyntaxError|['o']\" expected='SyntaxError|NameError'",
+      "tokens": 14535,
+      "seconds": 251.81,
+      "error": null,
+      "raw": "results/raw/10_walrus_and_default__muse-wonder-1.0__t2.txt"
+    },
+    {
+      "task": "10_walrus_and_default",
+      "model": "muse-wonder-1.0",
+      "trial": 3,
+      "pass": false,
+      "detail": "stdout: got=\"ok|['o']\" expected='SyntaxError|NameError'",
+      "tokens": 8963,
+      "seconds": 74.2,
+      "error": null,
+      "raw": "results/raw/10_walrus_and_default__muse-wonder-1.0__t3.txt"
+    },
+    {
+      "task": "10_walrus_and_default",
+      "model": "muse-spark-open-1026",
+      "trial": 1,
+      "pass": false,
+      "detail": "stdout: got=\"ok|['o']\" expected='SyntaxError|NameError'",
+      "tokens": 13053,
+      "seconds": 305.13,
+      "error": null,
+      "raw": "results/raw/10_walrus_and_default__muse-spark-open-1026__t1.txt"
+    },
+    {
+      "task": "10_walrus_and_default",
+      "model": "muse-spark-open-1026",
+      "trial": 2,
+      "pass": false,
+      "detail": "stdout: got=\"ok|['o']\" expected='SyntaxError|NameError'",
+      "tokens": 14045,
+      "seconds": 47.98,
+      "error": null,
+      "raw": "results/raw/10_walrus_and_default__muse-spark-open-1026__t2.txt"
+    },
+    {
+      "task": "10_walrus_and_default",
+      "model": "muse-spark-open-1026",
+      "trial": 3,
+      "pass": false,
+      "detail": "stdout: got=\"ok|['o']\" expected='SyntaxError|NameError'",
+      "tokens": 7931,
+      "seconds": 29.75,
+      "error": null,
+      "raw": "results/raw/10_walrus_and_default__muse-spark-open-1026__t3.txt"
     }
   ],
   "by_model": {
     "Beam-1.0-501B-A23B": {
-      "pass_at_1_mean": 0.8095,
-      "tasks": 7,
-      "tasks_all_pass": 4,
+      "pass_at_1_mean": 0.7778,
+      "tasks": 9,
+      "tasks_all_pass": 5,
       "tasks_all_fail": 0
     },
     "muse-spark-open-1026": {
-      "pass_at_1_mean": 0.1905,
-      "tasks": 7,
+      "pass_at_1_mean": 0.1333,
+      "tasks": 10,
       "tasks_all_pass": 0,
-      "tasks_all_fail": 5
+      "tasks_all_fail": 8
     },
     "muse-wonder-1.0": {
-      "pass_at_1_mean": 0.0833,
-      "tasks": 8,
+      "pass_at_1_mean": 0.0667,
+      "tasks": 10,
       "tasks_all_pass": 0,
-      "tasks_all_fail": 7
+      "tasks_all_fail": 9
     }
   },
   "matrix": {
@@ -951,6 +1227,17 @@
       "muse-wonder-1.0": 0.0
     },
     "08_nested_two_shadows": {
+      "Beam-1.0-501B-A23B": 1.0,
+      "muse-spark-open-1026": 0.0,
+      "muse-wonder-1.0": 0.0
+    },
+    "09_pep695_type_param": {
+      "Beam-1.0-501B-A23B": 0.3333333333333333,
+      "muse-spark-open-1026": 0.0,
+      "muse-wonder-1.0": 0.0
+    },
+    "10_walrus_and_default": {
+      "muse-spark-open-1026": 0.0,
       "muse-wonder-1.0": 0.0
     }
   },

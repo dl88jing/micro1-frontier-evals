@@ -5,9 +5,9 @@ Oracle graders: **10/10**. Empty API replies retried up to 3×.
 
 | Model | pass@1 mean | all-pass tasks | all-fail tasks |
 |---|---|---|---|
-| `Beam-1.0-501B-A23B` | 81.0% | 4/7 | 0/7 |
-| `muse-spark-open-1026` | 19.1% | 0/7 | 5/7 |
-| `muse-wonder-1.0` | 8.3% | 0/8 | 7/8 |
+| `Beam-1.0-501B-A23B` | 77.8% | 5/9 | 0/9 |
+| `muse-spark-open-1026` | 13.3% | 0/10 | 8/10 |
+| `muse-wonder-1.0` | 6.7% | 0/10 | 9/10 |
 
 ## Matrix (pass@1)
 
@@ -20,5 +20,7 @@ Oracle graders: **10/10**. Empty API replies retried up to 3×.
 | `05_genexp_late_bind` | 100% | 0% | 0% |
 | `06_default_fallthrough` | 100% | 0% | 0% |
 | `07_method_reads_shadow` | 100% | 0% | 0% |
-| `08_nested_two_shadows` | — | — | 0% |
+| `08_nested_two_shadows` | 100% | 0% | 0% |
+| `09_pep695_type_param` | 33% | 0% | 0% |
+| `10_walrus_and_default` | — | 0% | 0% |
 
