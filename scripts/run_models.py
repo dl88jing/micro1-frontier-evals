@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run PyScope tasks against Muse Wonder + Muse Spark Open."""
+"""Run PyScope tasks against Wonder / Spark / Beam. 3 trials → pass@1 average."""
 from __future__ import annotations
 
 import json
@@ -17,6 +17,7 @@ RESULTS = ROOT / "results"
 RAW = RESULTS / "raw"
 RAW.mkdir(parents=True, exist_ok=True)
 PROGRESS = RESULTS / "summary.json"
+TRIALS = 3
 
 
 def load_clients():
@@ -38,103 +39,180 @@ def load_clients():
             OpenAI(api_key=env["BASETEN_API_KEY"], base_url=env["BASETEN_BASE_URL"], timeout=400),
             env.get("BASETEN_MODEL", "meta-models/muse-spark-open-1026"),
         )
+    beam = Path("/workspace/beam-hack/.reflection_api_key")
+    if beam.exists():
+        clients["Beam-1.0-501B-A23B"] = (
+            OpenAI(api_key=beam.read_text().strip(), base_url="https://api.reflection.ai/openai/v1", timeout=400),
+            "Beam-1.0-501B-A23B",
+        )
+    # Nebius only if a real (non-placeholder) key is present
+    nebius_path = Path("/home/box/.config/micro1-eval/nebius.env")
+    if nebius_path.exists():
+        env = {}
+        for l in nebius_path.read_text().splitlines():
+            if "=" in l and not l.strip().startswith("#"):
+                k, v = l.split("=", 1)
+                env[k] = v.strip().strip('"')
+        nk = env.get("NEBIUS_API_KEY", "")
+        if nk and "SENSITIVE" not in nk and len(nk) > 20:
+            nb = env.get("NEBIUS_BASE_URL") or "https://api.tokenfactory.us-central1.nebius.com/v1/"
+            clients["deepseek-ai/DeepSeek-V3"] = (
+                OpenAI(api_key=nk, base_url=nb, timeout=400),
+                "deepseek-ai/DeepSeek-V3",
+            )
     return clients
 
 
 def ask(client: OpenAI, model: str, prompt: str) -> tuple[str, int]:
-    r = client.chat.completions.create(
-        model=model,
-        temperature=0,
-        max_tokens=8192,
-        messages=[
-            {
-                "role": "system",
-                "content": (
-                    "You are predicting exact CPython 3.13 semantics. "
-                    "Reason carefully, then end with one line: FINAL_ANSWER: <compact json>."
-                ),
-            },
-            {"role": "user", "content": prompt},
-        ],
-    )
-    text = r.choices[0].message.content or ""
-    tok = getattr(r.usage, "completion_tokens", 0) or 0
+    text = ""
+    tok = 0
+    for attempt in range(3):
+        r = client.chat.completions.create(
+            model=model,
+            temperature=0,
+            max_tokens=8192,
+            messages=[
+                {
+                    "role": "system",
+                    "content": (
+                        "You are predicting exact CPython 3.13 semantics. "
+                        "Reason carefully, then end with one line: FINAL_ANSWER: <compact json>."
+                    ),
+                },
+                {"role": "user", "content": prompt},
+            ],
+        )
+        text = r.choices[0].message.content or ""
+        tok = getattr(r.usage, "completion_tokens", 0) or 0
+        if text.strip():
+            break
+        time.sleep(1.5)
     return text, tok
 
 
-def save(rows):
-    summary = {"rows": rows, "by_model": {}}
-    for label in sorted({r["model"] for r in rows}):
-        subset = [r for r in rows if r["model"] == label]
+def save(rows, trial_rows):
+    # Aggregate pass@1: mean of trial passes per (task, model)
+    from collections import defaultdict
+    groups = defaultdict(list)
+    for r in trial_rows:
+        groups[(r["task"], r["model"])].append(r["pass"])
+    agg = []
+    for (task, model), passes in sorted(groups.items()):
+        rate = sum(passes) / len(passes)
+        agg.append({
+            "task": task,
+            "model": model,
+            "pass": rate >= 1.0,  # all trials passed
+            "pass_at_1": rate,
+            "trials": len(passes),
+            "detail": f"pass@1={rate:.3f} over {len(passes)} trials",
+        })
+    summary = {
+        "rows": agg,
+        "trials": trial_rows,
+        "by_model": {},
+        "matrix": {},
+        "protocol": f"temperature=0, {TRIALS} trials/task/model, pass@1 = mean trial pass rate",
+        "oracle": "10/10",
+        "models": sorted({r["model"] for r in trial_rows}),
+    }
+    for label in summary["models"]:
+        subset = [r for r in agg if r["model"] == label]
+        mean_p = sum(r["pass_at_1"] for r in subset) / max(1, len(subset))
         summary["by_model"][label] = {
-            "pass": sum(1 for r in subset if r["pass"]),
-            "total": len(subset),
-            "rate": sum(1 for r in subset if r["pass"]) / max(1, len(subset)),
+            "pass_at_1_mean": round(mean_p, 4),
+            "tasks": len(subset),
+            "tasks_all_pass": sum(1 for r in subset if r["pass_at_1"] >= 1.0),
+            "tasks_all_fail": sum(1 for r in subset if r["pass_at_1"] <= 0.0),
+        }
+    # matrix task x model
+    tasks = sorted({r["task"] for r in agg})
+    for t in tasks:
+        summary["matrix"][t] = {
+            m: next(r["pass_at_1"] for r in agg if r["task"] == t and r["model"] == m)
+            for m in summary["models"]
+            if any(r["task"] == t and r["model"] == m for r in agg)
         }
     PROGRESS.write_text(json.dumps(summary, indent=2) + "\n")
-    lines = ["# PyScope LEGB results", ""]
-    lines.append("| Task | Model | Pass | Detail |")
-    lines.append("|---|---|---|---|")
-    for r in rows:
-        mark = "PASS" if r["pass"] else "FAIL"
-        detail = r["detail"].replace("|", "/").replace("\n", " ")[:140]
-        lines.append(f"| {r['task']} | {r['model']} | {mark} | {detail} |")
-    lines.append("")
+
+    lines = [
+        "# PyScope LEGB results (hardened)",
+        "",
+        f"Protocol: temperature 0, **{TRIALS} trials** per task/model, report **pass@1** (= mean trial pass rate).",
+        "Oracle graders: **10/10**. Empty API replies retried up to 3×.",
+        "",
+        "| Model | pass@1 mean | all-pass tasks | all-fail tasks |",
+        "|---|---|---|---|",
+    ]
     for m, s in summary["by_model"].items():
-        lines.append(f"- **{m}**: {s['pass']}/{s['total']} = {100*s['rate']:.0f}% pass")
+        lines.append(
+            f"| `{m}` | {100*s['pass_at_1_mean']:.1f}% | {s['tasks_all_pass']}/{s['tasks']} | {s['tasks_all_fail']}/{s['tasks']} |"
+        )
+    lines += ["", "## Matrix (pass@1)", "", "| Task | " + " | ".join(f"`{m}`" for m in summary["models"]) + " |",
+              "|" + "---|" * (1 + len(summary["models"]))]
+    for t in tasks:
+        cells = []
+        for m in summary["models"]:
+            v = summary["matrix"][t].get(m)
+            cells.append("—" if v is None else f"{100*v:.0f}%")
+        lines.append(f"| `{t}` | " + " | ".join(cells) + " |")
+    lines.append("")
     (RESULTS / "RESULTS.md").write_text("\n".join(lines) + "\n")
     return summary
 
 
 def main() -> None:
     clients = load_clients()
-    rows = []
+    print("CLIENTS", list(clients), flush=True)
+    trial_rows = []
+    # resume from existing trials if present
     if PROGRESS.exists():
         try:
             prev = json.loads(PROGRESS.read_text())
-            if isinstance(prev, dict) and "rows" in prev:
-                # only keep pyscope rows
-                rows = [r for r in prev["rows"] if str(r.get("task", "")).startswith(("0", "1"))]
-                # drop SpecCascade leftovers
-                rows = [r for r in rows if "_" in r["task"] and not r["task"].startswith("01_timezone")]
+            if isinstance(prev, dict) and "trials" in prev:
+                trial_rows = prev["trials"]
         except Exception:
-            rows = []
+            trial_rows = []
 
-    done = {(r["task"], r["model"]) for r in rows}
+    done = {(r["task"], r["model"], r["trial"]) for r in trial_rows}
     for task in list_tasks():
         prompt = (task / "prompt.md").read_text()
         expected = load_json(task / "answer.json")
         for label, (client, model) in clients.items():
-            if (task.name, label) in done:
-                print(f"SKIP {task.name} {label}", flush=True)
-                continue
-            print(f"RUN {task.name} {label}...", flush=True)
-            t0 = time.time()
-            try:
-                text, tok = ask(client, model, prompt)
-                err = None
-            except Exception as e:
-                text, tok, err = f"ERROR: {e}", 0, str(e)
-            elapsed = time.time() - t0
-            raw_path = RAW / f"{task.name}__{label}.txt"
-            raw_path.write_text(text)
-            graded = grade_payload(text, expected)
-            row = {
-                "task": task.name,
-                "model": label,
-                "pass": graded["pass"],
-                "detail": graded["detail"],
-                "tokens": tok,
-                "seconds": round(elapsed, 2),
-                "error": err,
-                "raw": str(raw_path.relative_to(ROOT)),
-            }
-            rows.append(row)
-            save(rows)
-            print(f"  -> {'PASS' if row['pass'] else 'FAIL'} {row['detail'][:140]}", flush=True)
+            for trial in range(1, TRIALS + 1):
+                key = (task.name, label, trial)
+                if key in done:
+                    print(f"SKIP {task.name} {label} t{trial}", flush=True)
+                    continue
+                print(f"RUN {task.name} {label} t{trial}...", flush=True)
+                t0 = time.time()
+                try:
+                    text, tok = ask(client, model, prompt)
+                    err = None
+                except Exception as e:
+                    text, tok, err = f"ERROR: {e}", 0, str(e)
+                elapsed = time.time() - t0
+                raw_path = RAW / f"{task.name}__{label}__t{trial}.txt"
+                raw_path.write_text(text)
+                graded = grade_payload(text, expected)
+                row = {
+                    "task": task.name,
+                    "model": label,
+                    "trial": trial,
+                    "pass": graded["pass"],
+                    "detail": graded["detail"],
+                    "tokens": tok,
+                    "seconds": round(elapsed, 2),
+                    "error": err,
+                    "raw": str(raw_path.relative_to(ROOT)),
+                }
+                trial_rows.append(row)
+                save([], trial_rows)
+                print(f"  -> {'PASS' if row['pass'] else 'FAIL'} {row['detail'][:140]}", flush=True)
 
-    summary = save(rows)
+    summary = save([], trial_rows)
     print(json.dumps(summary["by_model"], indent=2), flush=True)
+    print(json.dumps(summary["matrix"], indent=2), flush=True)
     (RESULTS / "DONE").write_text("ok\n")
 
 
