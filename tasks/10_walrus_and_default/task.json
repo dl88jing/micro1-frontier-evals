@@ -1,0 +1,9 @@
+{
+  "id": "10_walrus_and_default",
+  "title": "Walrus-in-class SyntaxError + default NameError",
+  "category": "legb_class_body",
+  "difficulty": "hard",
+  "failure_mode": "Models miss that assignment expressions in class comprehensions are SyntaxError, and/or miss the default+later-assign NameError.",
+  "python": "3.13",
+  "probe_fails": ">=2 of wonder/spark/beam (see results/probe_*.json)"
+}

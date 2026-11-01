@@ -1,8 +1,0 @@
-{
-  "id": "10_dst_footgun",
-  "title": "DST absolute vs same-tzinfo subtraction",
-  "category": "temporal_semantics",
-  "difficulty": "hard",
-  "failure_mode": "Models confuse wall-clock timedelta (same tzinfo object ignores tz and subtracts naive walls) with absolute timestamp elapsed time across the spring-forward transition.",
-  "python": "3.13"
-}
