@@ -1,10 +1,34 @@
 [
-  ["vo1", "Frontier models still fail plain Python. Not olympiad algorithms — the class body."],
-  ["vo2", "Meet PyScope: ten original LEGB traps for the micro1 Eval Hackathon, by Green Robin Labs."],
-  ["vo3", "Inside a class, a list comprehension does not see class locals. Free variables close over the module scope instead."],
-  ["vo4", "Nest a class inside a function, assign to a name later, and an earlier read becomes a NameError. Whole-body local binding."],
-  ["vo5", "Annotations, default arguments, and lambdas each capture differently. Models trained on LEGB slogans still mix them up."],
-  ["vo6", "We ship automatic JSON graders, an oracle that scores ten of ten, and empirical runs on Muse Wonder and Muse Spark Open."],
-  ["vo7", "Wonder and Spark miss multiple tasks. That is the point: frontier-failing, not toy puzzles."],
-  ["vo8", "Repo, results page, and this video. PyScope — built to submit, and built to win."]
+  [
+    "vo1",
+    "Frontier models still fail plain Python. Not olympiad algorithms \u2014 the class body."
+  ],
+  [
+    "vo2",
+    "Meet PyScope: ten hardened CPython 3.13 LEGB traps for the micro1 Eval Hackathon, by Green Robin Labs."
+  ],
+  [
+    "vo3",
+    "Inside a class, a list comprehension does not see class locals. Free variables close over the module scope instead."
+  ],
+  [
+    "vo4",
+    "Assign later in the class body and an earlier read becomes a NameError. Defaults fall through to globals. Walrus in a class is a SyntaxError."
+  ],
+  [
+    "vo5",
+    "PEP 695 type parameters, genexps, and nested shadows \u2014 each selected because multiple frontier models already failed them."
+  ],
+  [
+    "vo6",
+    "Automatic JSON graders. Oracle ten of ten. Empirical pass-at-one over three trials on Muse Wonder, Muse Spark Open, and Beam."
+  ],
+  [
+    "vo7",
+    "The soft suite was too easy. We swapped seven tasks until each failed at least two reachable models."
+  ],
+  [
+    "vo8",
+    "Repo, results page, and this video. PyScope \u2014 built to submit, and built to win."
+  ]
 ]
