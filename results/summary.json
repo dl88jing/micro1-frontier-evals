@@ -2,222 +2,255 @@
   "rows": [
     {
       "task": "01_listcomp_class",
-      "model": "muse-wonder-1.0",
+      "model": "Beam-1.0-501B-A23B",
       "pass": false,
-      "detail": "stdout: got='class outer class arg' expected='outer outer class arg'",
-      "tokens": 3772,
-      "seconds": 27.85,
-      "error": null,
-      "raw": "results/raw/01_listcomp_class__muse-wonder-1.0.txt"
+      "pass_at_1": 0.6666666666666666,
+      "trials": 3,
+      "detail": "pass@1=0.667 over 3 trials"
     },
     {
       "task": "01_listcomp_class",
       "model": "muse-spark-open-1026",
-      "pass": true,
-      "detail": "exact match",
-      "tokens": 3157,
-      "seconds": 28.81,
-      "error": null,
-      "raw": "results/raw/01_listcomp_class__muse-spark-open-1026.txt",
-      "retried": true
+      "pass": false,
+      "pass_at_1": 0.6666666666666666,
+      "trials": 3,
+      "detail": "pass@1=0.667 over 3 trials"
+    },
+    {
+      "task": "01_listcomp_class",
+      "model": "muse-wonder-1.0",
+      "pass": false,
+      "pass_at_1": 0.0,
+      "trials": 3,
+      "detail": "pass@1=0.000 over 3 trials"
+    },
+    {
+      "task": "02_nested_listcomp",
+      "model": "Beam-1.0-501B-A23B",
+      "pass": false,
+      "pass_at_1": 0.0,
+      "trials": 3,
+      "detail": "pass@1=0.000 over 3 trials"
+    },
+    {
+      "task": "02_nested_listcomp",
+      "model": "muse-spark-open-1026",
+      "pass": false,
+      "pass_at_1": 0.0,
+      "trials": 3,
+      "detail": "pass@1=0.000 over 3 trials"
     },
     {
       "task": "02_nested_listcomp",
       "model": "muse-wonder-1.0",
+      "pass": false,
+      "pass_at_1": 0.0,
+      "trials": 3,
+      "detail": "pass@1=0.000 over 3 trials"
+    },
+    {
+      "task": "03_class_local_bind",
+      "model": "muse-spark-open-1026",
+      "pass": false,
+      "pass_at_1": 0.0,
+      "trials": 1,
+      "detail": "pass@1=0.000 over 1 trials"
+    },
+    {
+      "task": "03_class_local_bind",
+      "model": "muse-wonder-1.0",
+      "pass": false,
+      "pass_at_1": 0.0,
+      "trials": 3,
+      "detail": "pass@1=0.000 over 3 trials"
+    }
+  ],
+  "trials": [
+    {
+      "task": "01_listcomp_class",
+      "model": "muse-wonder-1.0",
+      "trial": 1,
+      "pass": false,
+      "detail": "stdout: got='class outer class arg' expected='outer outer class arg'",
+      "tokens": 3591,
+      "seconds": 25.98,
+      "error": null,
+      "raw": "results/raw/01_listcomp_class__muse-wonder-1.0__t1.txt"
+    },
+    {
+      "task": "01_listcomp_class",
+      "model": "muse-wonder-1.0",
+      "trial": 2,
+      "pass": false,
+      "detail": "stdout: got='class outer class arg' expected='outer outer class arg'",
+      "tokens": 4088,
+      "seconds": 31.4,
+      "error": null,
+      "raw": "results/raw/01_listcomp_class__muse-wonder-1.0__t2.txt"
+    },
+    {
+      "task": "01_listcomp_class",
+      "model": "muse-wonder-1.0",
+      "trial": 3,
+      "pass": false,
+      "detail": "stdout: got='class outer class arg' expected='outer outer class arg'",
+      "tokens": 2355,
+      "seconds": 18.04,
+      "error": null,
+      "raw": "results/raw/01_listcomp_class__muse-wonder-1.0__t3.txt"
+    },
+    {
+      "task": "01_listcomp_class",
+      "model": "muse-spark-open-1026",
+      "trial": 1,
+      "pass": false,
+      "detail": "stdout: got='class outer class arg' expected='outer outer class arg'",
+      "tokens": 5453,
+      "seconds": 19.96,
+      "error": null,
+      "raw": "results/raw/01_listcomp_class__muse-spark-open-1026__t1.txt"
+    },
+    {
+      "task": "01_listcomp_class",
+      "model": "muse-spark-open-1026",
+      "trial": 2,
+      "pass": true,
+      "detail": "exact match",
+      "tokens": 4324,
+      "seconds": 14.71,
+      "error": null,
+      "raw": "results/raw/01_listcomp_class__muse-spark-open-1026__t2.txt"
+    },
+    {
+      "task": "01_listcomp_class",
+      "model": "muse-spark-open-1026",
+      "trial": 3,
+      "pass": true,
+      "detail": "exact match",
+      "tokens": 2437,
+      "seconds": 9.38,
+      "error": null,
+      "raw": "results/raw/01_listcomp_class__muse-spark-open-1026__t3.txt"
+    },
+    {
+      "task": "01_listcomp_class",
+      "model": "Beam-1.0-501B-A23B",
+      "trial": 1,
+      "pass": true,
+      "detail": "exact match",
+      "tokens": 6364,
+      "seconds": 49.31,
+      "error": null,
+      "raw": "results/raw/01_listcomp_class__Beam-1.0-501B-A23B__t1.txt"
+    },
+    {
+      "task": "01_listcomp_class",
+      "model": "Beam-1.0-501B-A23B",
+      "trial": 2,
+      "pass": true,
+      "detail": "exact match",
+      "tokens": 4727,
+      "seconds": 32.89,
+      "error": null,
+      "raw": "results/raw/01_listcomp_class__Beam-1.0-501B-A23B__t2.txt"
+    },
+    {
+      "task": "01_listcomp_class",
+      "model": "Beam-1.0-501B-A23B",
+      "trial": 3,
+      "pass": false,
+      "detail": "stdout: got='class outer class arg' expected='outer outer class arg'",
+      "tokens": 6525,
+      "seconds": 54.93,
+      "error": null,
+      "raw": "results/raw/01_listcomp_class__Beam-1.0-501B-A23B__t3.txt"
+    },
+    {
+      "task": "02_nested_listcomp",
+      "model": "muse-wonder-1.0",
+      "trial": 1,
       "pass": false,
       "detail": "stdout: got=\"[['C', 'C'], ['C', 'C']] ['G'] ('C', 'C') ('Q', 'C')\" expected=\"[['G', 'G'], ['G', 'G']] ['G'] ('C', 'C') ('Q', 'C')\"",
-      "tokens": 7409,
-      "seconds": 51.34,
+      "tokens": 7193,
+      "seconds": 49.59,
       "error": null,
-      "raw": "results/raw/02_nested_listcomp__muse-wonder-1.0.txt"
+      "raw": "results/raw/02_nested_listcomp__muse-wonder-1.0__t1.txt"
     },
     {
       "task": "02_nested_listcomp",
-      "model": "muse-spark-open-1026",
-      "pass": true,
-      "detail": "exact match",
-      "tokens": 5596,
-      "seconds": 18.16,
+      "model": "muse-wonder-1.0",
+      "trial": 2,
+      "pass": false,
+      "detail": "stdout: got=\"[['C', 'C'], ['C', 'C']] ['G'] ('C', 'C') ('Q', 'C')\" expected=\"[['G', 'G'], ['G', 'G']] ['G'] ('C', 'C') ('Q', 'C')\"",
+      "tokens": 5791,
+      "seconds": 459.54,
       "error": null,
-      "raw": "results/raw/02_nested_listcomp__muse-spark-open-1026.txt"
+      "raw": "results/raw/02_nested_listcomp__muse-wonder-1.0__t2.txt"
     },
     {
       "task": "03_class_local_bind",
       "model": "muse-wonder-1.0",
-      "pass": true,
-      "detail": "exact match",
-      "tokens": 7952,
-      "seconds": 52.3,
-      "error": null,
-      "raw": "results/raw/03_class_local_bind__muse-wonder-1.0.txt",
-      "retried": true
-    },
-    {
-      "task": "03_class_local_bind",
-      "model": "muse-spark-open-1026",
+      "trial": 3,
       "pass": false,
       "detail": "stdout: got='11 100 101' expected='NameError'",
-      "tokens": 1811,
-      "seconds": 6.58,
+      "tokens": 1906,
+      "seconds": 36.61,
       "error": null,
-      "raw": "results/raw/03_class_local_bind__muse-spark-open-1026.txt"
+      "raw": "results/raw/03_class_local_bind__muse-wonder-1.0__t3.txt"
     },
     {
-      "task": "04_genexp_vs_list",
-      "model": "muse-wonder-1.0",
-      "pass": true,
-      "detail": "exact match",
-      "tokens": 3478,
-      "seconds": 22.92,
-      "error": null,
-      "raw": "results/raw/04_genexp_vs_list__muse-wonder-1.0.txt"
-    },
-    {
-      "task": "04_genexp_vs_list",
+      "task": "03_class_local_bind",
       "model": "muse-spark-open-1026",
-      "pass": true,
-      "detail": "exact match",
-      "tokens": 3373,
-      "seconds": 11.39,
-      "error": null,
-      "raw": "results/raw/04_genexp_vs_list__muse-spark-open-1026.txt"
-    },
-    {
-      "task": "05_lambda_scopes",
-      "model": "muse-wonder-1.0",
-      "pass": true,
-      "detail": "exact match",
-      "tokens": 6794,
-      "seconds": 51.19,
-      "error": null,
-      "raw": "results/raw/05_lambda_scopes__muse-wonder-1.0.txt"
-    },
-    {
-      "task": "05_lambda_scopes",
-      "model": "muse-spark-open-1026",
-      "pass": true,
-      "detail": "exact match",
-      "tokens": 5884,
-      "seconds": 30.39,
-      "error": null,
-      "raw": "results/raw/05_lambda_scopes__muse-spark-open-1026.txt",
-      "retried": true
-    },
-    {
-      "task": "06_annotations_class",
-      "model": "muse-wonder-1.0",
-      "pass": true,
-      "detail": "exact match",
-      "tokens": 6803,
-      "seconds": 63.87,
-      "error": null,
-      "raw": "results/raw/06_annotations_class__muse-wonder-1.0.txt",
-      "retried": true
-    },
-    {
-      "task": "06_annotations_class",
-      "model": "muse-spark-open-1026",
-      "pass": true,
-      "detail": "exact match",
-      "tokens": 5350,
-      "seconds": 28.36,
-      "error": null,
-      "raw": "results/raw/06_annotations_class__muse-spark-open-1026.txt",
-      "retried": true
-    },
-    {
-      "task": "07_decorator_default",
-      "model": "muse-wonder-1.0",
-      "pass": true,
-      "detail": "exact match",
-      "tokens": 1439,
-      "seconds": 10.59,
-      "error": null,
-      "raw": "results/raw/07_decorator_default__muse-wonder-1.0.txt"
-    },
-    {
-      "task": "07_decorator_default",
-      "model": "muse-spark-open-1026",
-      "pass": true,
-      "detail": "exact match",
-      "tokens": 2102,
-      "seconds": 9.56,
-      "error": null,
-      "raw": "results/raw/07_decorator_default__muse-spark-open-1026.txt"
-    },
-    {
-      "task": "08_mro_super",
-      "model": "muse-wonder-1.0",
-      "pass": true,
-      "detail": "exact match",
-      "tokens": 705,
-      "seconds": 2.84,
-      "error": null,
-      "raw": "results/raw/08_mro_super__muse-wonder-1.0.txt"
-    },
-    {
-      "task": "08_mro_super",
-      "model": "muse-spark-open-1026",
-      "pass": true,
-      "detail": "exact match",
-      "tokens": 793,
-      "seconds": 2.68,
-      "error": null,
-      "raw": "results/raw/08_mro_super__muse-spark-open-1026.txt"
-    },
-    {
-      "task": "09_bool_prefers",
-      "model": "muse-wonder-1.0",
-      "pass": true,
-      "detail": "exact match",
-      "tokens": 448,
-      "seconds": 2.8,
-      "error": null,
-      "raw": "results/raw/09_bool_prefers__muse-wonder-1.0.txt"
-    },
-    {
-      "task": "09_bool_prefers",
-      "model": "muse-spark-open-1026",
-      "pass": true,
-      "detail": "exact match",
-      "tokens": 705,
-      "seconds": 2.7,
-      "error": null,
-      "raw": "results/raw/09_bool_prefers__muse-spark-open-1026.txt"
-    },
-    {
-      "task": "10_dst_footgun",
-      "model": "muse-wonder-1.0",
-      "pass": true,
-      "detail": "exact match",
-      "tokens": 3144,
-      "seconds": 61.67,
-      "error": null,
-      "raw": "results/raw/10_dst_footgun__muse-wonder-1.0.txt",
-      "retried": true
-    },
-    {
-      "task": "10_dst_footgun",
-      "model": "muse-spark-open-1026",
+      "trial": 1,
       "pass": false,
-      "detail": "could not parse JSON from model output",
-      "tokens": 8192,
-      "seconds": 32.07,
+      "detail": "stdout: got='11 100 101' expected='NameError'",
+      "tokens": 1816,
+      "seconds": 6.82,
       "error": null,
-      "raw": "results/raw/10_dst_footgun__muse-spark-open-1026.txt",
-      "retried": true
+      "raw": "results/raw/03_class_local_bind__muse-spark-open-1026__t1.txt"
     }
   ],
   "by_model": {
+    "Beam-1.0-501B-A23B": {
+      "pass_at_1_mean": 0.3333,
+      "tasks": 2,
+      "tasks_all_pass": 0,
+      "tasks_all_fail": 1
+    },
     "muse-spark-open-1026": {
-      "pass": 8,
-      "total": 10,
-      "rate": 0.8
+      "pass_at_1_mean": 0.2222,
+      "tasks": 3,
+      "tasks_all_pass": 0,
+      "tasks_all_fail": 2
     },
     "muse-wonder-1.0": {
-      "pass": 8,
-      "total": 10,
-      "rate": 0.8
+      "pass_at_1_mean": 0.0,
+      "tasks": 3,
+      "tasks_all_pass": 0,
+      "tasks_all_fail": 3
     }
-  }
+  },
+  "matrix": {
+    "01_listcomp_class": {
+      "Beam-1.0-501B-A23B": 0.6666666666666666,
+      "muse-spark-open-1026": 0.6666666666666666,
+      "muse-wonder-1.0": 0.0
+    },
+    "02_nested_listcomp": {
+      "Beam-1.0-501B-A23B": 0.0,
+      "muse-spark-open-1026": 0.0,
+      "muse-wonder-1.0": 0.0
+    },
+    "03_class_local_bind": {
+      "muse-spark-open-1026": 0.0,
+      "muse-wonder-1.0": 0.0
+    }
+  },
+  "protocol": "temperature=0, 3 trials/task/model, pass@1 = mean trial pass rate",
+  "oracle": "10/10",
+  "models": [
+    "Beam-1.0-501B-A23B",
+    "muse-spark-open-1026",
+    "muse-wonder-1.0"
+  ]
 }
