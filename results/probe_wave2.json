@@ -1,0 +1,218 @@
+{
+  "default_global_fallthrough": {
+    "gt": "('G', 'L', 'C')\n",
+    "models": {
+      "wonder": {
+        "pass": false,
+        "pred": "('L', 'L', 'C')\n"
+      },
+      "spark": {
+        "pass": false,
+        "pred": "('L', 'L', 'C')\n"
+      },
+      "beam": {
+        "pass": false,
+        "pred": null
+      }
+    },
+    "fail_count": 3
+  },
+  "walrus_and_default": {
+    "gt": "SyntaxError|NameError\n",
+    "models": {
+      "spark": {
+        "pass": false,
+        "pred": null
+      },
+      "beam": {
+        "pass": false,
+        "pred": null
+      },
+      "wonder": {
+        "pass": false,
+        "pred": null
+      }
+    },
+    "fail_count": 3
+  },
+  "dictcomp_default_assign": {
+    "gt": "({0: 'L', 1: 'L'}, 'G', 'C')\n",
+    "models": {
+      "spark": {
+        "pass": false,
+        "pred": null
+      },
+      "beam": {
+        "pass": false,
+        "pred": null
+      },
+      "wonder": {
+        "pass": false,
+        "pred": null
+      }
+    },
+    "fail_count": 3
+  },
+  "lambda_default_vs_body": {
+    "gt": "('loc', 'mod', 'loc', 'loc', 'cls', 'loc')\n",
+    "models": {
+      "spark": {
+        "pass": false,
+        "pred": null
+      },
+      "beam": {
+        "pass": false,
+        "pred": null
+      },
+      "wonder": {
+        "pass": false,
+        "pred": null
+      }
+    },
+    "fail_count": 3
+  },
+  "exc_delete_unbound": {
+    "gt": "('ZeroDivisionError', 'UnboundLocalError')\n",
+    "models": {
+      "wonder": {
+        "pass": true,
+        "pred": "('ZeroDivisionError', 'UnboundLocalError')\n"
+      },
+      "beam": {
+        "pass": true,
+        "pred": "('ZeroDivisionError', 'UnboundLocalError')\n"
+      },
+      "spark": {
+        "pass": false,
+        "pred": null
+      }
+    },
+    "fail_count": 1
+  },
+  "pep695_assign_read": {
+    "gt": "mod cls cls T\n",
+    "models": {
+      "spark": {
+        "pass": false,
+        "pred": null
+      },
+      "wonder": {
+        "pass": false,
+        "pred": null
+      },
+      "beam": {
+        "pass": false,
+        "pred": null
+      }
+    },
+    "fail_count": 3
+  },
+  "combo_default_listcomp": {
+    "gt": "(['L'], (['G'], ['L']), ['C'])\n",
+    "models": {
+      "spark": {
+        "pass": false,
+        "pred": null
+      },
+      "wonder": {
+        "pass": false,
+        "pred": null
+      },
+      "beam": {
+        "pass": false,
+        "pred": null
+      }
+    },
+    "fail_count": 3
+  },
+  "nested_two_shadows": {
+    "gt": "NameError\n",
+    "models": {
+      "spark": {
+        "pass": false,
+        "pred": null
+      },
+      "wonder": {
+        "pass": false,
+        "pred": "(1, 2, (1, 2), 10, 20)\n"
+      },
+      "beam": {
+        "pass": false,
+        "pred": null
+      }
+    },
+    "fail_count": 3
+  },
+  "pep709_plus_default": {
+    "gt": "([1, 2], 7, 7, 99, 3)\n",
+    "models": {
+      "spark": {
+        "pass": false,
+        "pred": null
+      },
+      "wonder": {
+        "pass": false,
+        "pred": null
+      },
+      "beam": {
+        "pass": false,
+        "pred": null
+      }
+    },
+    "fail_count": 3
+  },
+  "genexp_vs_list_enclosing": {
+    "gt": "(['L'], ['L'], 'C')\n",
+    "models": {
+      "spark": {
+        "pass": false,
+        "pred": null
+      },
+      "wonder": {
+        "pass": false,
+        "pred": null
+      },
+      "beam": {
+        "pass": false,
+        "pred": null
+      }
+    },
+    "fail_count": 3
+  },
+  "annotation_fn_enclosing": {
+    "gt": "({'a': 'cls', 'b': list['cls']}, {'v': 'cls', 'return': 'cls'}, 'cls')\n",
+    "models": {
+      "spark": {
+        "pass": false,
+        "pred": null
+      },
+      "beam": {
+        "pass": false,
+        "pred": null
+      },
+      "wonder": {
+        "pass": false,
+        "pred": null
+      }
+    },
+    "fail_count": 3
+  },
+  "type_param_bound": {
+    "gt": "int str\n",
+    "models": {
+      "beam": {
+        "pass": true,
+        "pred": "int str"
+      },
+      "spark": {
+        "pass": false,
+        "pred": null
+      },
+      "wonder": {
+        "pass": true,
+        "pred": "int str\n"
+      }
+    },
+    "fail_count": 1
+  }
+}

@@ -1,0 +1,64 @@
+ORACLE default_global_fallthrough: "('G', 'L', 'C')\n"
+ORACLE walrus_and_default: 'SyntaxError|NameError\n'
+ORACLE dictcomp_default_assign: "({0: 'L', 1: 'L'}, 'G', 'C')\n"
+ORACLE lambda_default_vs_body: "('loc', 'mod', 'loc', 'loc', 'cls', 'loc')\n"
+ORACLE exc_delete_unbound: "('ZeroDivisionError', 'UnboundLocalError')\n"
+ORACLE pep695_assign_read: 'mod cls cls T\n'
+ORACLE combo_default_listcomp: "(['L'], (['G'], ['L']), ['C'])\n"
+ORACLE nested_two_shadows: 'NameError\n'
+ORACLE pep709_plus_default: '([1, 2], 7, 7, 99, 3)\n'
+ORACLE genexp_vs_list_enclosing: "(['L'], ['L'], 'C')\n"
+ORACLE annotation_fn_enclosing: "({'a': 'cls', 'b': list['cls']}, {'v': 'cls', 'return': 'cls'}, 'cls')\n"
+ORACLE type_param_bound: 'int str\n'
+CLIENTS ['wonder', 'spark', 'beam']
+  default_global_fallthrough wonder FAIL pred="('L', 'L', 'C')\n"
+  default_global_fallthrough spark FAIL pred="('L', 'L', 'C')\n"
+  default_global_fallthrough beam FAIL pred=None
+  walrus_and_default spark FAIL pred=None
+  walrus_and_default beam FAIL pred=None
+  walrus_and_default wonder FAIL pred=None
+  dictcomp_default_assign spark FAIL pred=None
+  dictcomp_default_assign beam FAIL pred=None
+  dictcomp_default_assign wonder FAIL pred=None
+  lambda_default_vs_body spark FAIL pred=None
+  lambda_default_vs_body beam FAIL pred=None
+  lambda_default_vs_body wonder FAIL pred=None
+  exc_delete_unbound wonder PASS pred="('ZeroDivisionError', 'UnboundLocalError')\n"
+  exc_delete_unbound beam PASS pred="('ZeroDivisionError', 'UnboundLocalError')\n"
+  exc_delete_unbound spark FAIL pred=None
+  pep695_assign_read spark FAIL pred=None
+  pep695_assign_read wonder FAIL pred=None
+  pep695_assign_read beam FAIL pred=None
+  combo_default_listcomp spark FAIL pred=None
+  combo_default_listcomp wonder FAIL pred=None
+  combo_default_listcomp beam FAIL pred=None
+  nested_two_shadows spark FAIL pred=None
+  nested_two_shadows wonder FAIL pred='(1, 2, (1, 2), 10, 20)\n'
+  nested_two_shadows beam FAIL pred=None
+  pep709_plus_default spark FAIL pred=None
+  pep709_plus_default wonder FAIL pred=None
+  pep709_plus_default beam FAIL pred=None
+  genexp_vs_list_enclosing spark FAIL pred=None
+  genexp_vs_list_enclosing wonder FAIL pred=None
+  genexp_vs_list_enclosing beam FAIL pred=None
+  annotation_fn_enclosing spark FAIL pred=None
+  annotation_fn_enclosing beam FAIL pred=None
+  annotation_fn_enclosing wonder FAIL pred=None
+  type_param_bound beam PASS pred='int str'
+  type_param_bound spark FAIL pred=None
+  type_param_bound wonder PASS pred='int str\n'
+
+=== SUMMARY ===
+default_global_fallthrough: fails=3 {'wonder': 'F', 'spark': 'F', 'beam': 'F'}
+walrus_and_default: fails=3 {'spark': 'F', 'beam': 'F', 'wonder': 'F'}
+dictcomp_default_assign: fails=3 {'spark': 'F', 'beam': 'F', 'wonder': 'F'}
+lambda_default_vs_body: fails=3 {'spark': 'F', 'beam': 'F', 'wonder': 'F'}
+exc_delete_unbound: fails=1 {'wonder': 'P', 'beam': 'P', 'spark': 'F'}
+pep695_assign_read: fails=3 {'spark': 'F', 'wonder': 'F', 'beam': 'F'}
+combo_default_listcomp: fails=3 {'spark': 'F', 'wonder': 'F', 'beam': 'F'}
+nested_two_shadows: fails=3 {'spark': 'F', 'wonder': 'F', 'beam': 'F'}
+pep709_plus_default: fails=3 {'spark': 'F', 'wonder': 'F', 'beam': 'F'}
+genexp_vs_list_enclosing: fails=3 {'spark': 'F', 'wonder': 'F', 'beam': 'F'}
+annotation_fn_enclosing: fails=3 {'spark': 'F', 'beam': 'F', 'wonder': 'F'}
+type_param_bound: fails=1 {'beam': 'P', 'spark': 'F', 'wonder': 'P'}
+HARD: ['default_global_fallthrough', 'walrus_and_default', 'dictcomp_default_assign', 'lambda_default_vs_body', 'pep695_assign_read', 'combo_default_listcomp', 'nested_two_shadows', 'pep709_plus_default', 'genexp_vs_list_enclosing', 'annotation_fn_enclosing']
