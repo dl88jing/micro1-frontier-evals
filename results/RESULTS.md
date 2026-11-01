@@ -1,30 +1,22 @@
-# PyScope LEGB results
+# PyScope LEGB results (hardened)
 
-Empirical runs against **Muse Wonder 1.0** (Meta API) and **Muse Spark Open** (Baseten).
-Oracle graders: **10/10**. Temperature 0. Empty API replies were retried up to 3×.
+Protocol: temperature 0, **3 trials** per task/model, report **pass@1** (= mean trial pass rate).
+Oracle graders: **10/10**. Empty API replies retried up to 3×.
 
-| Model | Pass | Fail | Rate |
+| Model | pass@1 mean | all-pass tasks | all-fail tasks |
 |---|---|---|---|
-| muse-wonder-1.0 | 8 | 2 | 80% |
-| muse-spark-open-1026 | 8 | 2 | 80% |
+| `Beam-1.0-501B-A23B` | 73.3% | 2/5 | 0/5 |
+| `muse-spark-open-1026` | 22.2% | 0/6 | 4/6 |
+| `muse-wonder-1.0` | 11.1% | 0/6 | 5/6 |
 
-| Task | Wonder | Spark | Trap |
+## Matrix (pass@1)
+
+| Task | `Beam-1.0-501B-A23B` | `muse-spark-open-1026` | `muse-wonder-1.0` |
 |---|---|---|---|
-| `01_listcomp_class` | FAIL | PASS | listcomp free vars skip class scope |
-| `02_nested_listcomp` | FAIL | PASS | nested comps + defaults disagree |
-| `03_class_local_bind` | PASS | FAIL | assign → whole-body local → NameError |
-| `04_genexp_vs_list` | PASS | PASS | genexp closes module; bare name is class |
-| `05_lambda_scopes` | PASS | PASS | lambda vs default vs listcomp-lambda |
-| `06_annotations_class` | PASS | PASS | annotations see class locals (no PEP 563) |
-| `07_decorator_default` | PASS | PASS | defaults bind class namespace at def time |
-| `08_mro_super` | PASS | PASS | cooperative super MRO C before B |
-| `09_bool_prefers` | PASS | PASS | __bool__ beats __len__ for truthiness |
-| `10_dst_footgun` | PASS | FAIL | wall-clock tzinfo sub vs absolute time |
-
-## Notable wrong answers (not empty replies)
-
-- **01 Wonder**: predicted `class outer class arg` — treated class body as enclosing scope for listcomp/lambda free vars.
-- **02 Wonder**: nested listcomp used class `C` instead of module `G`.
-- **03 Spark**: predicted `11 100 101` instead of `NameError` (missed whole-body local binding).
-- **10 Spark**: empty completion after retries (counted fail; Wonder passed structured DST fields).
+| `01_listcomp_class` | 67% | 67% | 0% |
+| `02_nested_listcomp` | 33% | 67% | 0% |
+| `03_class_local_bind` | 100% | 0% | 67% |
+| `04_default_shadow` | 67% | 0% | 0% |
+| `05_genexp_late_bind` | 100% | 0% | 0% |
+| `06_default_fallthrough` | — | 0% | 0% |
 
