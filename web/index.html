@@ -3,42 +3,79 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="PyScope: CPython 3.13 class-body / LEGB frontier evals for micro1. Measured pass@1: Wonder 6.7%, Spark 13.3%, Beam 76.7%. Oracle 10/10."/>
 <title>PyScope — micro1 Frontier Evals (hardened)</title>
 <style>
-  :root { --bg:#0b1220; --card:#121a2b; --fg:#e8eefc; --muted:#9bb0d0; --ok:#3ddc97; --bad:#ff6b6b; --accent:#7aa2ff; }
+  :root { --bg:#0b1220; --card:#121a2b; --fg:#e8eefc; --muted:#9bb0d0; --ok:#3ddc97; --bad:#ff6b6b; --accent:#7aa2ff; --line:#243352; }
   * { box-sizing: border-box; }
   body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:radial-gradient(1200px 600px at 10% -10%, #1a2744, var(--bg)); color:var(--fg); }
   main { max-width: 1100px; margin: 0 auto; padding: 48px 20px 80px; }
   h1 { font-size: 2.2rem; margin: 0 0 8px; letter-spacing: -0.02em; }
-  .sub { color: var(--muted); margin-bottom: 28px; line-height: 1.5; }
-  .grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin: 24px 0 32px; }
-  .card { background: var(--card); border:1px solid #243352; border-radius: 14px; padding: 16px 18px; }
-  .card .k { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: .06em; }
-  .card .v { font-size: 1.45rem; font-weight: 700; margin-top: 6px; }
-  table { width:100%; border-collapse: collapse; background: var(--card); border-radius: 14px; overflow:hidden; border:1px solid #243352; }
+  h2 { font-size: 1.15rem; margin: 36px 0 12px; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); margin-bottom: 20px; line-height: 1.55; }
+  .links { display:flex; flex-wrap:wrap; gap:10px 16px; margin: 0 0 28px; font-size: 0.92rem; }
+  .grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin: 8px 0 28px; }
+  .card { background: var(--card); border:1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+  .card .k { color: var(--muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: .06em; }
+  .card .v { font-size: 1.4rem; font-weight: 700; margin-top: 6px; }
+  .card .hint { color: var(--muted); font-size: 0.78rem; margin-top: 4px; }
+  table { width:100%; border-collapse: collapse; background: var(--card); border-radius: 14px; overflow:hidden; border:1px solid var(--line); }
   th, td { padding: 10px 12px; text-align:left; border-bottom:1px solid #1e2a44; font-size: 0.88rem; }
   th { color: var(--muted); font-weight: 600; background:#0f1728; }
   .pass { color: var(--ok); font-weight: 700; }
   .fail { color: var(--bad); font-weight: 700; }
   .mid { color: #ffd166; font-weight: 700; }
   a { color: var(--accent); }
-  footer { margin-top: 36px; color: var(--muted); font-size: 0.85rem; }
-  code { background:#0f1728; padding:2px 6px; border-radius:6px; }
+  footer { margin-top: 36px; color: var(--muted); font-size: 0.85rem; line-height: 1.5; }
+  code, pre { background:#0f1728; border-radius:8px; }
+  code { padding:2px 6px; }
+  pre { padding:14px 16px; overflow:auto; border:1px solid var(--line); font-size: 0.82rem; line-height: 1.45; }
+  .method { display:grid; grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap:10px; margin: 12px 0 8px; }
+  .step { background: var(--card); border:1px solid var(--line); border-radius: 12px; padding: 12px 14px; font-size: 0.85rem; line-height: 1.4; }
+  .step strong { display:block; color: var(--accent); font-size: 0.72rem; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .note { color: var(--muted); font-size: 0.85rem; line-height: 1.5; margin-top: 10px; }
 </style>
 </head>
 <body>
 <main>
   <h1>PyScope <span style="font-size:1rem;color:var(--muted);font-weight:500">hardened</span></h1>
   <p class="sub">micro1 Eval Hackathon · Green Robin Labs · Dylan Ler (Northbridge)<br/>
-  Ten CPython 3.13 class-body / LEGB / PEP 695·709·572 traps. Graded on <strong>pass@1</strong> over 3 trials (temp 0). Oracle 10/10.</p>
+  Ten CPython 3.13 class-body / LEGB / PEP 695·709·572 traps. Graded on <strong>pass@1</strong> over 3 trials (temp 0). Oracle <strong>10/10</strong>.</p>
+  <div class="links">
+    <a href="https://github.com/dl88jing/micro1-frontier-evals">GitHub repo</a>
+    <a href="https://github.com/dl88jing/micro1-frontier-evals/blob/main/README.md#for-judges">For judges (reproduce)</a>
+    <a href="https://github.com/dl88jing/micro1-frontier-evals/releases/tag/v1.1.0">Release v1.1.0 · demo + zip</a>
+    <a href="https://github.com/dl88jing/micro1-frontier-evals/blob/main/docs/method.md">Method</a>
+    <a href="https://github.com/dl88jing/micro1-frontier-evals/blob/main/results/RESULTS.md">Full matrix</a>
+  </div>
   <div class="grid" id="stats"></div>
+  <h2>Pass@1 matrix</h2>
   <table>
     <thead><tr id="head"></tr></thead>
     <tbody id="rows"></tbody>
   </table>
+  <p class="note" id="protocol"></p>
+
+  <h2>Method</h2>
+  <div class="method">
+    <div class="step"><strong>1 · Domain</strong>CPython 3.13 class-body / LEGB traps from real Python expertise</div>
+    <div class="step"><strong>2 · Probe</strong>Multi-model candidates on Wonder · Spark · Beam</div>
+    <div class="step"><strong>3 · Harden</strong>Keep tasks where ≥2 models fail; write prompt, answer, grader, rationale</div>
+    <div class="step"><strong>4 · Oracle</strong>Ground-truth must grade 10/10 before any model claim</div>
+    <div class="step"><strong>5 · Measure</strong>temp 0 · 3 trials · report pass@1 (mean trial pass rate)</div>
+  </div>
+  <p class="note">Headline numbers are measured only — see <code>results/summary.json</code>. Nebius Token Factory was not used for the submitted matrix (secret lives on Vercel only).</p>
+
+  <h2>Reproduce (no API keys)</h2>
+  <pre>git clone https://github.com/dl88jing/micro1-frontier-evals.git &amp;&amp; cd micro1-frontier-evals
+python3 -m venv .venv &amp;&amp; .venv/bin/pip install -r requirements.txt
+.venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python graders/run_all.py   # expect oracle 10/10</pre>
+
   <footer>
     Source: <a href="https://github.com/dl88jing/micro1-frontier-evals">github.com/dl88jing/micro1-frontier-evals</a>
-    · Nebius Token Factory key lives only on Vercel as a redacted secret; empirical matrix uses Meta Wonder, Baseten Spark, Reflection Beam.
+    · Empirical matrix: Meta Wonder, Baseten Spark, Reflection Beam
+    · HackerRank form submission is final; public repo/page may receive additive polish until the contest close (Nov 8, 9:15 PM PT).
   </footer>
 </main>
 <script>
@@ -79,22 +116,28 @@ async function load() {
   }
   if (!data) { document.getElementById("rows").innerHTML = "<tr><td>Awaiting results/summary.json</td></tr>"; return; }
   const models = data.models || Object.keys(data.by_model || {});
-  document.getElementById("stats").innerHTML = [
-    `<div class="card"><div class="k">Tasks</div><div class="v">10</div></div>`,
-    `<div class="card"><div class="k">Oracle</div><div class="v">10/10</div></div>`,
-    ...models.map(m => {
-      const s = data.by_model[m] || {};
-      const v = s.pass_at_1_mean != null ? `${Math.round(100*s.pass_at_1_mean)}%` : (s.pass != null ? `${s.pass}/${s.total}` : "—");
-      return `<div class="card"><div class="k">${SHORT[m]||m}</div><div class="v">${v}</div></div>`;
-    })
-  ].join("");
+  const cards = [
+    `<div class="card"><div class="k">Tasks</div><div class="v">10</div><div class="hint">hardened suite</div></div>`,
+    `<div class="card"><div class="k">Oracle</div><div class="v">${data.oracle || "10/10"}</div><div class="hint">ground truth</div></div>`,
+  ];
+  models.forEach(m => {
+    const s = data.by_model[m] || {};
+    const v = s.pass_at_1_mean != null ? `${(100*s.pass_at_1_mean).toFixed(1).replace(/\.0$/,"")}%` : "—";
+    const hint = (s.tasks_all_pass != null)
+      ? `all-pass ${s.tasks_all_pass}/10 · all-fail ${s.tasks_all_fail}/10`
+      : "pass@1 mean";
+    cards.push(`<div class="card"><div class="k">${SHORT[m]||m}</div><div class="v">${v}</div><div class="hint">${hint}</div></div>`);
+  });
+  document.getElementById("stats").innerHTML = cards.join("");
+  document.getElementById("protocol").textContent = data.protocol
+    ? `Protocol: ${data.protocol}. Numbers loaded from summary.json (not invented).`
+    : "Protocol: temperature 0, 3 trials/task/model, pass@1 = mean trial pass rate.";
   document.getElementById("head").innerHTML = `<th>Task</th>` + models.map(m => `<th>${SHORT[m]||m}</th>`).join("") + `<th>Trap</th>`;
   const tasks = Object.keys(TRAPS);
   document.getElementById("rows").innerHTML = tasks.map(t => {
     const cells = models.map(m => {
       const v = data.matrix?.[t]?.[m];
       if (v != null) return `<td>${pct(v)}</td>`;
-      // fallback old boolean rows
       const row = (data.rows||[]).find(r => r.task===t && r.model===m);
       if (row && row.pass_at_1 != null) return `<td>${pct(row.pass_at_1)}</td>`;
       if (row) return `<td>${row.pass ? '<span class="pass">PASS</span>' : '<span class="fail">FAIL</span>'}</td>`;

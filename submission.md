@@ -72,7 +72,9 @@ Exact Instructions page is behind HackerRank auth. From public FAQ:
 - **Deadline:** Nov 9 05:15 GMT = **Nov 8, 9:15 PM America/Los_Angeles**  
 - Winners announced Nov 23  
 
-**Blocked for this agent:** submitting the form on HackerRank requires Dylan’s logged-in session. Package + repo + video + page are ready; final click is on Dylan.
+**Status (2026-10-31 ~9:35 PM PT):** HackerRank form submission is FINAL (confirmation email received; cannot re-save zip/video/description on HR). Official challenge window still open until **Nov 8, 9:15 PM PT** (Nov 9 05:15 GMT). Public repo + results page may receive additive polish until then; **do not change v1.1.0 release assets** that match the submitted zip/demo.
+
+**Blocked for this agent:** re-opening the HackerRank form (platform says submission is final). Dylan already submitted.
 
 ### Suggested HackerRank description
 
