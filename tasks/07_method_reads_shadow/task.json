@@ -1,0 +1,9 @@
+{
+  "id": "07_method_reads_shadow",
+  "title": "Method free var + class-local assign \u2192 NameError",
+  "category": "legb_class_body",
+  "difficulty": "hard",
+  "failure_mode": "Models allow `y = x + 1` to read the enclosing function local even though a later class assignment makes `x` local for the whole body.",
+  "python": "3.13",
+  "probe_fails": ">=2 of wonder/spark/beam (see results/probe_*.json)"
+}
