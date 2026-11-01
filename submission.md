@@ -35,16 +35,31 @@
 
 Tasks 04–10 were selected from multi-model probes where ≥2 of Wonder/Spark/Beam failed.
 
-## Empirical failure rates
+## Empirical pass@1 (3 trials, temp 0)
 
-_Matrix filled after the 3× pass@1 run completes — see `results/RESULTS.md`._
+| Model | pass@1 mean | all-pass | all-fail |
+|---|---|---|---|
+| Muse Wonder 1.0 | **6.7%** | 0/10 | 9/10 |
+| Muse Spark Open | **13.3%** | 0/10 | 8/10 |
+| Beam-1.0-501B-A23B | **76.7%** | 5/10 | 0/10 |
+| Oracle | 10/10 | — | — |
 
-| Model | pass@1 mean | Notes |
-|---|---|---|
-| Muse Wonder 1.0 | TBD | Meta |
-| Muse Spark Open | TBD | Baseten |
-| Beam-1.0-501B-A23B | TBD | Reflection |
-| Oracle | 10/10 | 100% |
+### Matrix (pass@1 %)
+
+| Task | Wonder | Spark | Beam |
+|---|---|---|---|
+| `01_listcomp_class` | 0 | 67 | 67 |
+| `02_nested_listcomp` | 0 | 67 | 33 |
+| `03_class_local_bind` | 67 | 0 | 100 |
+| `04_default_shadow` | 0 | 0 | 67 |
+| `05_genexp_late_bind` | 0 | 0 | 100 |
+| `06_default_fallthrough` | 0 | 0 | 100 |
+| `07_method_reads_shadow` | 0 | 0 | 100 |
+| `08_nested_two_shadows` | 0 | 0 | 100 |
+| `09_pep695_type_param` | 0 | 0 | 33 |
+| `10_walrus_and_default` | 0 | 0 | 67 |
+
+See `results/RESULTS.md`.
 
 ## HackerRank submit (manual — needs Dylan login)
 
@@ -61,7 +76,7 @@ Exact Instructions page is behind HackerRank auth. From public FAQ:
 
 ### Suggested HackerRank description
 
-> PyScope: 10 hardened CPython 3.13 class-body / LEGB traps with automatic JSON graders. Oracle 10/10. 3× pass@1 on Muse Wonder, Muse Spark Open, and Beam. Repo + Vercel results + demo video. Green Robin Labs / Dylan Ler (Northbridge).
+> PyScope: 10 hardened CPython 3.13 class-body / LEGB traps with automatic JSON graders. Oracle 10/10. 3× pass@1: Wonder 6.7%, Spark 13.3%, Beam 76.7%. Repo + Vercel results + demo video. Green Robin Labs / Dylan Ler (Northbridge).
 
 ## Non-affiliation
 

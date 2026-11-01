@@ -10,9 +10,15 @@ Ten original, automatically graded tasks that probe **CPython 3.13 class-body sc
 
 Protocol: temperature 0, **3 trials / task / model**, report **pass@1** (mean trial pass rate). Oracle **10/10**.
 
-Models reached: **Muse Wonder 1.0** (Meta), **Muse Spark Open** (Baseten), **Beam-1.0-501B-A23B** (Reflection). Nebius Token Factory key is only on Vercel as `[SENSITIVE]` and could not be used locally.
+| Model | pass@1 mean | all-pass | all-fail |
+|---|---|---|---|
+| Muse Wonder 1.0 (Meta) | **6.7%** | 0/10 | 9/10 |
+| Muse Spark Open (Baseten) | **13.3%** | 0/10 | 8/10 |
+| Beam-1.0-501B-A23B (Reflection) | **76.7%** | 5/10 | 0/10 |
 
-Full matrix: [`results/RESULTS.md`](results/RESULTS.md) · Live page: [pyscope-evals.vercel.app](https://pyscope-evals.vercel.app) · Demo: [GitHub Releases](https://github.com/dl88jing/micro1-frontier-evals/releases)
+Nebius Token Factory key is only on Vercel as `[SENSITIVE]` and could not be used locally.
+
+Full matrix: [`results/RESULTS.md`](results/RESULTS.md) · Live page: [pyscope-evals.vercel.app](https://pyscope-evals.vercel.app) · Demo: [GitHub Releases](https://github.com/dl88jing/micro1-frontier-evals/releases/tag/v1.1.0)
 
 ## Tasks
 
