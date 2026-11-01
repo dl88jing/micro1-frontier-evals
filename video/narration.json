@@ -21,11 +21,11 @@
   ],
   [
     "vo6",
-    "Automatic JSON graders. Oracle ten of ten. Empirical pass-at-one over three trials on Muse Wonder, Muse Spark Open, and Beam."
+    "Automatic JSON graders. Oracle ten of ten. Three trials per task. Pass at one on Muse Wonder, Muse Spark Open, and Beam."
   ],
   [
     "vo7",
-    "The soft suite was too easy. We swapped seven tasks until each failed at least two reachable models."
+    "Wonder scores about seven percent. Spark thirteen. Beam seventy-seven. Soft suite was too easy \u2014 we hardened until Wonder and Spark all-failed seven traps."
   ],
   [
     "vo8",

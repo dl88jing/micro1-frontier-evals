@@ -1,46 +1,46 @@
 {
-  "total": 61.19733333333333,
+  "total": 63.669333333333334,
   "scenes": [
     {
       "img": "01-hook.png",
-      "start": 0.8,
-      "duration": 6.291,
+      "start": 0.0,
+      "duration": 5.511,
       "label": "Hook"
     },
     {
       "img": "02-suite.png",
-      "start": 7.091,
-      "duration": 7.144,
+      "start": 5.511,
+      "duration": 8.433,
       "label": "Suite"
     },
     {
       "img": "03-listcomp.png",
-      "start": 14.235,
-      "duration": 7.933,
+      "start": 13.944,
+      "duration": 7.153,
       "label": "Listcomp"
     },
     {
       "img": "04-nameerror.png",
-      "start": 22.168,
-      "duration": 8.381,
+      "start": 21.097,
+      "duration": 8.796,
       "label": "NameError"
     },
     {
       "img": "05-bind.png",
-      "start": 30.549,
-      "duration": 8.339,
+      "start": 29.893,
+      "duration": 9.543,
       "label": "Bindings"
     },
     {
       "img": "06-results.png",
-      "start": 38.888,
-      "duration": 15.504,
+      "start": 39.436,
+      "duration": 18.808,
       "label": "Results"
     },
     {
       "img": "07-cta.png",
-      "start": 54.392,
-      "duration": 6.805,
+      "start": 58.244,
+      "duration": 5.425,
       "label": "CTA"
     }
   ]
