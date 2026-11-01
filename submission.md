@@ -11,15 +11,16 @@
 |---|---|
 | Public GitHub | https://github.com/dl88jing/micro1-frontier-evals |
 | Local package | `/workspace/micro1-eval/` |
-| ZIP | `/workspace/micro1-eval/micro1-frontier-evals.zip` (≤50MB) |
-| Results page | Vercel URL (see README / release notes) |
-| Demo video | GitHub Release asset `pyscope-demo.mp4` (60–120s) |
+| ZIP | `/workspace/micro1-eval/micro1-frontier-evals.zip` (~0.22 MB; also on release) |
+| Results page | https://pyscope-evals.vercel.app |
+| Demo video | https://github.com/dl88jing/micro1-frontier-evals/releases/download/v1.0.0/pyscope-demo.mp4 (~61s) |
+| Release | https://github.com/dl88jing/micro1-frontier-evals/releases/tag/v1.0.0 |
 
 ## Theme
 
 **PyScope — Class-body LEGB traps on CPython 3.13.** Ten original tasks with prompt, ground-truth JSON, automatic grader, and rationale. Empirically verified against Muse Wonder 1.0 (Meta) and Muse Spark Open (Baseten).
 
-## Tasks (short)
+## Tasks
 
 1. `01_listcomp_class` — listcomp free vars skip class scope  
 2. `02_nested_listcomp` — nested comps vs defaults  
@@ -34,13 +35,19 @@
 
 ## Empirical failure rates
 
-Fill from `results/RESULTS.md` after `scripts/run_models.py` completes.
+| Model | Pass | Fail | Pass rate |
+|---|---|---|---|
+| Muse Wonder 1.0 | 8/10 | 2 | 80% |
+| Muse Spark Open | 8/10 | 2 | 80% |
+| Oracle | 10/10 | 0 | 100% |
+
+Notable wrong answers: Wonder fails `01`/`02` (class scope vs listcomp); Spark fails `03` (misses NameError from whole-body local). See `results/RESULTS.md`.
 
 ## HackerRank submit (manual — needs Dylan login)
 
 Exact Instructions page is behind HackerRank auth. From public FAQ:
 
-- Upload ZIP ≤ 50MB (prompts + graders + results; no secrets)  
+- Upload ZIP ≤ 50MB (prompts + graders + results; no secrets) — ready at path above / release asset  
 - Link public GitHub repo  
 - Link results page / video (≤5 min)  
 - Short description  
@@ -48,6 +55,10 @@ Exact Instructions page is behind HackerRank auth. From public FAQ:
 - Winners announced Nov 23  
 
 **Blocked for this agent:** submitting the form on HackerRank requires Dylan’s logged-in session. Package + repo + video + page are ready; final click is on Dylan.
+
+### Suggested HackerRank description
+
+> PyScope: 10 original CPython 3.13 class-body / LEGB traps with automatic JSON graders. Oracle 10/10. Muse Wonder 8/10, Muse Spark Open 8/10. Repo + Vercel results + 61s demo video. Green Robin Labs / Dylan Ler (Northbridge).
 
 ## Non-affiliation
 

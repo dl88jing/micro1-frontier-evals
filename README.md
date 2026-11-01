@@ -14,7 +14,7 @@ Ten original, automatically graded tasks that probe **CPython 3.13 class-body sc
 | Muse Spark Open | 8/10 | 80% |
 | Oracle (ground truth) | 10/10 | 100% |
 
-Full matrix: [`results/RESULTS.md`](results/RESULTS.md) · Live page: see repo README / Vercel after deploy.
+Full matrix: [`results/RESULTS.md`](results/RESULTS.md) · Live page: [pyscope-evals.vercel.app](https://pyscope-evals.vercel.app) · Demo: [release v1.0.0](https://github.com/dl88jing/micro1-frontier-evals/releases/tag/v1.0.0)
 
 Wonder misses class-scope listcomp free-var rules; Spark misses whole-body `NameError` binding in nested classes.
 
