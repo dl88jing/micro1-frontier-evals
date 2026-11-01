@@ -1,0 +1,8 @@
+{
+  "id": "01_listcomp_class",
+  "title": "Listcomp vs class scope",
+  "category": "legb_class_body",
+  "difficulty": "hard",
+  "failure_mode": "Models treat class body as enclosing scope for listcomps; CPython listcomps in class bodies look up from the module/function scope, not the class dict.",
+  "python": "3.13"
+}

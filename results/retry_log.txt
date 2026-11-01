@@ -1,0 +1,30 @@
+Retrying 7 flake rows...
+RETRY 01_listcomp_class muse-spark-open-1026 attempt 1
+  -> PASS exact match
+RETRY 03_class_local_bind muse-wonder-1.0 attempt 1
+  -> PASS exact match
+RETRY 05_lambda_scopes muse-spark-open-1026 attempt 1
+RETRY 05_lambda_scopes muse-spark-open-1026 attempt 2
+  -> PASS exact match
+RETRY 06_annotations_class muse-wonder-1.0 attempt 1
+  -> PASS exact match
+RETRY 06_annotations_class muse-spark-open-1026 attempt 1
+  -> PASS exact match
+RETRY 10_dst_footgun muse-wonder-1.0 attempt 1
+  -> PASS exact match
+RETRY 10_dst_footgun muse-spark-open-1026 attempt 1
+RETRY 10_dst_footgun muse-spark-open-1026 attempt 2
+RETRY 10_dst_footgun muse-spark-open-1026 attempt 3
+  -> FAIL could not parse JSON from model output
+{
+  "muse-spark-open-1026": {
+    "pass": 8,
+    "total": 10,
+    "rate": 0.8
+  },
+  "muse-wonder-1.0": {
+    "pass": 8,
+    "total": 10,
+    "rate": 0.8
+  }
+}

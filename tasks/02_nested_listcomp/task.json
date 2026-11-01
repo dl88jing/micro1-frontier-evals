@@ -1,0 +1,8 @@
+{
+  "id": "02_nested_listcomp",
+  "title": "Nested listcomp + genexp in class",
+  "category": "legb_class_body",
+  "difficulty": "hard",
+  "failure_mode": "Nested comprehensions in class bodies still close over the module; models substitute the class attribute `v`.",
+  "python": "3.13"
+}

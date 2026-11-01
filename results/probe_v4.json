@@ -1,0 +1,140 @@
+{
+  "01_class_legb": {
+    "gt": {
+      "stdout": "outer outer class arg\n"
+    },
+    "W": {
+      "pass": false,
+      "ans": "{\"stdout\":\"class outer class arg\\n\"}",
+      "tok": 2595
+    },
+    "S": {
+      "pass": false,
+      "ans": "{\"stdout\":\"class outer class arg\\n\"}",
+      "tok": 4346
+    }
+  },
+  "02_class_rows": {
+    "gt": {
+      "stdout": "[['G', 'G'], ['G', 'G']] ['G'] ('C', 'C') ('Q', 'C')\n"
+    },
+    "W": {
+      "pass": false,
+      "ans": "{\"stdout\":\"[['C', 'C'], ['C', 'C']] ['G'] ('C', 'C') ('Q', 'C')\\n\"}",
+      "tok": 6346
+    },
+    "S": {
+      "pass": true,
+      "ans": "{\"stdout\":\"[['G', 'G'], ['G', 'G']] ['G'] ('C', 'C') ('Q', 'C')\\n\"}",
+      "tok": 6888
+    }
+  },
+  "03_lfsr": {
+    "gt": {
+      "b0": 0,
+      "b9": 1,
+      "b19": 0,
+      "b29": 0,
+      "b39": 1,
+      "state_hex": "f315",
+      "popcount": 21
+    },
+    "W": {
+      "pass": false,
+      "ans": "<no_final L=0>",
+      "tok": 8192
+    },
+    "S": {
+      "pass": false,
+      "ans": "<no_final L=0>",
+      "tok": 8192
+    }
+  },
+  "04_fee_long": {
+    "gt": {
+      "balance": 17214,
+      "total_fees": 2400,
+      "n_rejected": 1,
+      "bonus_total": 200
+    },
+    "W": {
+      "pass": true,
+      "ans": "{\"balance\":17214,\"total_fees\":2400,\"n_rejected\":1,\"bonus_total\":200}",
+      "tok": 1299
+    },
+    "S": {
+      "pass": true,
+      "ans": "{\"balance\":17214,\"total_fees\":2400,\"n_rejected\":1,\"bonus_total\":200}",
+      "tok": 1600
+    }
+  },
+  "05_grid_key": {
+    "gt": {
+      "steps": 14,
+      "path": "DDRDDLRUURRDDR"
+    },
+    "W": {
+      "pass": true,
+      "ans": "{\"steps\":14,\"path\":\"DDRDDLRUURRDDR\"}",
+      "tok": 2992
+    },
+    "S": {
+      "pass": false,
+      "ans": "<no_final L=0>",
+      "tok": 8192
+    }
+  },
+  "07_protocol_long": {
+    "gt": {
+      "state": "CLOSED",
+      "errors": 16,
+      "data_ok": 4
+    },
+    "W": {
+      "pass": true,
+      "ans": "{\"state\":\"CLOSED\",\"errors\":16,\"data_ok\":4}",
+      "tok": 899
+    },
+    "S": {
+      "pass": true,
+      "ans": "{\"state\":\"CLOSED\",\"errors\":16,\"data_ok\":4}",
+      "tok": 1581
+    }
+  },
+  "08_dst_footgun": {
+    "gt": {
+      "absolute_hours": 25.0,
+      "same_tzinfo_sub_hours": 26.0,
+      "ghost_utc_offset_hours": -8.0,
+      "ghost_fold": 0,
+      "span_1am_to_4am_sec": 7200.0
+    },
+    "W": {
+      "pass": true,
+      "ans": "{\"absolute_hours\":25.0,\"same_tzinfo_sub_hours\":26.0,\"ghost_utc_offset_hours\":-8.0,\"ghost_fold\":0,\"span_1am_to_4am_sec\":7200.0}",
+      "tok": 2781
+    },
+    "S": {
+      "pass": false,
+      "ans": "<no_final L=0>",
+      "tok": 8192
+    }
+  },
+  "09_checksum": {
+    "gt": {
+      "check": "C",
+      "secondary": "4",
+      "c_n": 12
+    },
+    "W": {
+      "pass": true,
+      "ans": "{\"check\":\"C\",\"secondary\":\"4\",\"c_n\":12}",
+      "tok": 2672
+    },
+    "S": {
+      "pass": true,
+      "ans": "{\"check\":\"C\",\"secondary\":\"4\",\"c_n\":12}",
+      "tok": 2691
+    }
+  }
+}

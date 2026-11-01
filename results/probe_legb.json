@@ -1,0 +1,157 @@
+{
+  "01_listcomp_class": {
+    "gt": {
+      "stdout": "outer outer class arg\n"
+    },
+    "W": {
+      "pass": false,
+      "ans": "{\"stdout\":\"class outer class arg\\n\"}",
+      "tok": 3851
+    },
+    "S": {
+      "pass": true,
+      "ans": "{\"stdout\":\"outer outer class arg\\n\"}",
+      "tok": 4057
+    }
+  },
+  "02_double_comp": {
+    "gt": {
+      "stdout": "[['G', 'G'], ['G', 'G']] ['G'] ('C', 'C') ('Q', 'C')\n"
+    },
+    "W": {
+      "pass": false,
+      "ans": "{\"stdout\":\"[['C', 'C'], ['C', 'C']] ['G'] ('C', 'C') ('Q', 'C')\\n\"}",
+      "tok": 2456
+    },
+    "S": {
+      "pass": false,
+      "ans": "<no_final L=0>",
+      "tok": 8192
+    }
+  },
+  "03_genexp_method": {
+    "gt": {
+      "stdout": "[7, 8, 9] [3, 4] [7, 8]\n"
+    },
+    "W": {
+      "pass": true,
+      "ans": "{\"stdout\":\"[7, 8, 9] [3, 4] [7, 8]\\n\"}",
+      "tok": 3964
+    },
+    "S": {
+      "pass": true,
+      "ans": "{\"stdout\":\"[7, 8, 9] [3, 4] [7, 8]\\n\"}",
+      "tok": 3542
+    }
+  },
+  "04_annotation_class": {
+    "gt": {
+      "stdout": "inner {'a': 'X'} ('inner', {'a': 'X'})\n"
+    },
+    "W": {
+      "pass": false,
+      "ans": "<no_final L=0>",
+      "tok": 8192
+    },
+    "S": {
+      "pass": false,
+      "ans": "{\"stdout\":\"inner {'a': 'inner'} ('inner', {'a': 'inner'})\\n\"}",
+      "tok": 7292
+    }
+  },
+  "06_decorator_default": {
+    "gt": {
+      "stdout": "class True ['class']\n"
+    },
+    "W": {
+      "pass": true,
+      "ans": "{\"stdout\":\"class True ['class']\\n\"}",
+      "tok": 1774
+    },
+    "S": {
+      "pass": true,
+      "ans": "{\"stdout\":\"class True ['class']\\n\"}",
+      "tok": 3683
+    }
+  },
+  "08_slots_dict": {
+    "gt": {
+      "stdout": "no_y\n1 False\n"
+    },
+    "W": {
+      "pass": true,
+      "ans": "{\"stdout\":\"no_y\\n1 False\\n\"}",
+      "tok": 426
+    },
+    "S": {
+      "pass": true,
+      "ans": "{\"stdout\":\"no_y\\n1 False\\n\"}",
+      "tok": 741
+    }
+  },
+  "09_mro_super": {
+    "gt": {
+      "stdout": "DCBA\n['D', 'C', 'B', 'A', 'object']\n"
+    },
+    "W": {
+      "pass": true,
+      "ans": "{\"stdout\":\"DCBA\\n['D', 'C', 'B', 'A', 'object']\\n\"}",
+      "tok": 789
+    },
+    "S": {
+      "pass": true,
+      "ans": "{\"stdout\":\"DCBA\\n['D', 'C', 'B', 'A', 'object']\\n\"}",
+      "tok": 799
+    }
+  },
+  "10_bool_len": {
+    "gt": {
+      "stdout": "bool\nFalse\nlen2\nFalse\n"
+    },
+    "W": {
+      "pass": true,
+      "ans": "{\"stdout\":\"bool\\nFalse\\nlen2\\nFalse\\n\"}",
+      "tok": 571
+    },
+    "S": {
+      "pass": true,
+      "ans": "{\"stdout\":\"bool\\nFalse\\nlen2\\nFalse\\n\"}",
+      "tok": 542
+    }
+  },
+  "lfsr24": {
+    "gt": {
+      "bits": "001000110110010110101110",
+      "state_hex": "65ae",
+      "pop": 12
+    },
+    "W": {
+      "pass": true,
+      "ans": "{\"bits\":\"001000110110010110101110\",\"state_hex\":\"65ae\",\"pop\":12}",
+      "tok": 6698
+    },
+    "S": {
+      "pass": false,
+      "ans": "<no_final L=0>",
+      "tok": 8192
+    }
+  },
+  "dst_pack": {
+    "gt": {
+      "absolute_hours": 25.0,
+      "same_tzinfo_sub_hours": 26.0,
+      "ghost_offset_h": -8.0,
+      "span_sec": 7200.0
+    },
+    "W": {
+      "pass": true,
+      "ans": "{\"absolute_hours\":25.0,\"same_tzinfo_sub_hours\":26.0,\"ghost_offset_h\":-8.0,\"span_sec\":7200.0}",
+      "tok": 2099
+    },
+    "S": {
+      "pass": false,
+      "ans": "<no_final L=0>",
+      "tok": 8192
+    }
+  }
+}

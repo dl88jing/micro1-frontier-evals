@@ -1,0 +1,204 @@
+{
+  "01_dst_absolute": {
+    "gt": {
+      "absolute_hours": 25.0,
+      "wall_hours": 26.0,
+      "naive_sub_hours": 26.0,
+      "span_seconds": 7200.0
+    },
+    "runs": {
+      "wonder": {
+        "ans": "{\"absolute_hours\":25.0,\"wall_hours\":26.0,\"naive_sub_hours\":26.0,\"span_seconds\":7200.0}",
+        "tok": 2119
+      },
+      "dsflash": {
+        "ans": "ERR Error code: 403",
+        "tok": 0
+      },
+      "glmflash": {
+        "ans": "ERR Error code: 403",
+        "tok": 0
+      }
+    }
+  },
+  "02_py_class_scope": {
+    "gt": {
+      "stdout": "outer outer class arg\n"
+    },
+    "runs": {
+      "wonder": {
+        "ans": "{\"stdout\":\"class outer class arg\"}",
+        "tok": 3670
+      },
+      "dsflash": {
+        "ans": "ERR Error code: 403",
+        "tok": 0
+      },
+      "glmflash": {
+        "ans": "ERR Error code: 403",
+        "tok": 0
+      }
+    }
+  },
+  "03_fee_cascade": {
+    "gt": {
+      "balance": 21715,
+      "total_fees": 855,
+      "n_rejected": 2,
+      "bonus_total": 220
+    },
+    "runs": {
+      "wonder": {
+        "ans": "{\"balance\":21715,\"total_fees\":855,\"n_rejected\":2,\"bonus_total\":220}",
+        "tok": 1431
+      },
+      "dsflash": {
+        "ans": "ERR Error code: 403",
+        "tok": 0
+      },
+      "glmflash": {
+        "ans": "ERR Error code: 403",
+        "tok": 0
+      }
+    }
+  },
+  "04_path_tiebreak": {
+    "gt": {
+      "path": "S-B-E-H-T",
+      "cost": 12,
+      "hops": 4
+    },
+    "runs": {
+      "wonder": {
+        "ans": "{\"path\":\"S-B-E-H-T\",\"cost\":12,\"hops\":4}",
+        "tok": 2897
+      },
+      "dsflash": {
+        "ans": "ERR Error code: 403",
+        "tok": 0
+      },
+      "glmflash": {
+        "ans": "ERR Error code: 403",
+        "tok": 0
+      }
+    }
+  },
+  "05_roster": {
+    "gt": {
+      "encoding": "OPEN:Ava+Cara|MID:Ava+Elle|CLOSE:Ben+Drew",
+      "used": 5
+    },
+    "runs": {
+      "wonder": {
+        "ans": "{\"encoding\":\"OPEN:Ava+Cara|MID:Ava+Elle|CLOSE:Ben+Drew\",\"used\":5}",
+        "tok": 3031
+      },
+      "dsflash": {
+        "ans": "ERR Error code: 403",
+        "tok": 0
+      },
+      "glmflash": {
+        "ans": "ERR Error code: 403",
+        "tok": 0
+      }
+    }
+  },
+  "06_regex_count": {
+    "gt": {
+      "matched": [
+        "aeon4",
+        "apex2",
+        "audio6",
+        "easy0",
+        "ideal5",
+        "orbit9",
+        "quiz5",
+        "unit3"
+      ],
+      "count": 8
+    },
+    "runs": {
+      "wonder": {
+        "ans": "{\"matched\":[\"aeon4\",\"apex2\",\"audio6\",\"easy0\",\"ideal5\",\"orbit9\",\"quiz5\",\"unit3\"],\"count\":8}",
+        "tok": 1919
+      },
+      "dsflash": {
+        "ans": "ERR Error code: 403",
+        "tok": 0
+      },
+      "glmflash": {
+        "ans": "ERR Error code: 403",
+        "tok": 0
+      }
+    }
+  },
+  "07_payday_iso": {
+    "gt": {
+      "march": [
+        "2024-03-01",
+        "2024-03-15",
+        "2024-03-29"
+      ],
+      "last_2024": "2024-12-20",
+      "last_iso": "2024-W51",
+      "first_2025": "2025-01-03",
+      "count_2024": 26
+    },
+    "runs": {
+      "wonder": {
+        "ans": "{\"march\":[\"2024-03-01\",\"2024-03-15\",\"2024-03-29\"],\"last_2024\":\"2024-12-20\",\"last_iso\":\"2024-W51\",\"first_2025\":\"2025-01-03\",\"count_2024\":26}",
+        "tok": 1792
+      },
+      "dsflash": {
+        "ans": "ERR Error code: 403",
+        "tok": 0
+      },
+      "glmflash": {
+        "ans": "ERR Error code: 403",
+        "tok": 0
+      }
+    }
+  },
+  "08_checksum": {
+    "gt": {
+      "check": "D",
+      "secondary": "3",
+      "c_n": 749
+    },
+    "runs": {
+      "wonder": {
+        "ans": "{\"check\":\"D\",\"secondary\":\"3\",\"c_n\":749}",
+        "tok": 2399
+      },
+      "dsflash": {
+        "ans": "ERR Error code: 403",
+        "tok": 0
+      },
+      "glmflash": {
+        "ans": "ERR Error code: 403",
+        "tok": 0
+      }
+    }
+  },
+  "10_protocol": {
+    "gt": {
+      "state": "CLOSED",
+      "errors": 2,
+      "data_ok": 3
+    },
+    "runs": {
+      "wonder": {
+        "ans": "{\"state\":\"CLOSED\",\"errors\":2,\"data_ok\":3}",
+        "tok": 1142
+      },
+      "dsflash": {
+        "ans": "ERR Error code: 403",
+        "tok": 0
+      },
+      "glmflash": {
+        "ans": "ERR Error code: 403",
+        "tok": 0
+      }
+    }
+  }
+}

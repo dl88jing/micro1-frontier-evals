@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>PyScope — micro1 Frontier Evals</title>
+<style>
+  :root { --bg:#0b1220; --card:#121a2b; --fg:#e8eefc; --muted:#9bb0d0; --ok:#3ddc97; --bad:#ff6b6b; --accent:#7aa2ff; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:radial-gradient(1200px 600px at 10% -10%, #1a2744, var(--bg)); color:var(--fg); }
+  main { max-width: 960px; margin: 0 auto; padding: 48px 20px 80px; }
+  h1 { font-size: 2.2rem; margin: 0 0 8px; letter-spacing: -0.02em; }
+  .sub { color: var(--muted); margin-bottom: 28px; line-height: 1.5; }
+  .grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin: 24px 0 32px; }
+  .card { background: var(--card); border:1px solid #243352; border-radius: 14px; padding: 16px 18px; }
+  .card .k { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: .06em; }
+  .card .v { font-size: 1.6rem; font-weight: 700; margin-top: 6px; }
+  table { width:100%; border-collapse: collapse; background: var(--card); border-radius: 14px; overflow:hidden; border:1px solid #243352; }
+  th, td { padding: 10px 12px; text-align:left; border-bottom:1px solid #1e2a44; font-size: 0.92rem; }
+  th { color: var(--muted); font-weight: 600; background:#0f1728; }
+  .pass { color: var(--ok); font-weight: 700; }
+  .fail { color: var(--bad); font-weight: 700; }
+  a { color: var(--accent); }
+  footer { margin-top: 36px; color: var(--muted); font-size: 0.85rem; }
+  code { background:#0f1728; padding:2px 6px; border-radius:6px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>PyScope</h1>
+  <p class="sub">micro1 Eval Hackathon · Green Robin Labs · Dylan Ler (Northbridge)<br/>
+  Ten original CPython 3.13 class-body / LEGB traps with automatic JSON graders.</p>
+  <div class="grid" id="stats">
+    <div class="card"><div class="k">Tasks</div><div class="v">10</div></div>
+    <div class="card"><div class="k">Oracle</div><div class="v">10/10</div></div>
+    <div class="card"><div class="k">Wonder 1.0</div><div class="v" id="w">—</div></div>
+    <div class="card"><div class="k">Spark Open</div><div class="v" id="s">—</div></div>
+  </div>
+  <table>
+    <thead><tr><th>Task</th><th>Wonder</th><th>Spark</th><th>Trap</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <footer>
+    Source: <a href="https://github.com/dl88jing/micro1-frontier-evals">github.com/dl88jing/micro1-frontier-evals</a>
+    · Graders exact-match <code>FINAL_ANSWER</code> JSON against oracle stdout / structured fields.
+  </footer>
+</main>
+<script>
+const TRAPS = {
+  "01_listcomp_class": "listcomp free vars skip class scope",
+  "02_nested_listcomp": "nested comps + defaults disagree",
+  "03_class_local_bind": "assign → whole-body local → NameError",
+  "04_genexp_vs_list": "genexp closes module; bare name is class",
+  "05_lambda_scopes": "lambda vs default vs listcomp-lambda",
+  "06_annotations_class": "annotations see class locals (no PEP 563)",
+  "07_decorator_default": "defaults bind class namespace at def time",
+  "08_mro_super": "cooperative super MRO C before B",
+  "09_bool_prefers": "__bool__ beats __len__ for truthiness",
+  "10_dst_footgun": "wall-clock tzinfo sub vs absolute time",
+};
+async function load() {
+  let data = null;
+  try {
+    const r = await fetch("../results/summary.json");
+    if (r.ok) data = await r.json();
+  } catch (e) {}
+  // embedded fallback filled at build time
+  if (!data && window.__SUMMARY__) data = window.__SUMMARY__;
+  if (!data) { document.getElementById("rows").innerHTML = "<tr><td colspan=4>Run scripts/run_models.py then rebuild page.</td></tr>"; return; }
+  const by = {};
+  for (const row of data.rows || []) {
+    by[row.task] = by[row.task] || {};
+    by[row.task][row.model] = row.pass;
+  }
+  const models = Object.keys(data.by_model || {});
+  const wKey = models.find(m => m.includes("wonder")) || "muse-wonder-1.0";
+  const sKey = models.find(m => m.includes("spark")) || "muse-spark-open-1026";
+  const wm = data.by_model[wKey]; const sm = data.by_model[sKey];
+  if (wm) document.getElementById("w").textContent = `${wm.pass}/${wm.total}`;
+  if (sm) document.getElementById("s").textContent = `${sm.pass}/${sm.total}`;
+  const tasks = Object.keys(TRAPS);
+  document.getElementById("rows").innerHTML = tasks.map(t => {
+    const w = by[t]?.[wKey]; const s = by[t]?.[sKey];
+    const cell = v => v === true ? '<span class="pass">PASS</span>' : v === false ? '<span class="fail">FAIL</span>' : '—';
+    return `<tr><td><code>${t}</code></td><td>${cell(w)}</td><td>${cell(s)}</td><td>${TRAPS[t]}</td></tr>`;
+  }).join("");
+}
+load();
+</script>
+</body>
+</html>

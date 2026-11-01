@@ -1,0 +1,165 @@
+{
+  "01_listcomp_class": {
+    "gt": {
+      "stdout": "outer outer class arg\n"
+    },
+    "rationale": "Listcomp in class body looks up enclosing module scope, not class scope.",
+    "W": {
+      "pass": false,
+      "ans": "{\"stdout\":\"class outer class arg\\n\"}",
+      "tok": 4425
+    },
+    "S": {
+      "pass": true,
+      "ans": "{\"stdout\":\"outer outer class arg\\n\"}",
+      "tok": 4470
+    }
+  },
+  "02_double_comp": {
+    "gt": {
+      "stdout": "[['G', 'G'], ['G', 'G']] ['G'] ('C', 'C') ('Q', 'C')\n"
+    },
+    "rationale": "Nested listcomps in class body bind from enclosing module; defaults bind class scope.",
+    "W": {
+      "pass": false,
+      "ans": "<no_final L=0>",
+      "tok": 8192
+    },
+    "S": {
+      "pass": true,
+      "ans": "{\"stdout\":\"[['G', 'G'], ['G', 'G']] ['G'] ('C', 'C') ('Q', 'C')\\n\"}",
+      "tok": 5452
+    }
+  },
+  "03_class_local_bind": {
+    "gt": {
+      "stdout": "NameError\n"
+    },
+    "rationale": "Assigning to x anywhere in class body nested in a function makes x local for the whole class body \u2192 NameError on y=x+1.",
+    "W": {
+      "pass": false,
+      "ans": "<no_final L=0>",
+      "tok": 8192
+    },
+    "S": {
+      "pass": false,
+      "ans": "{\"stdout\":\"11 100 101\\n\"}",
+      "tok": 2445
+    }
+  },
+  "04_genexp_vs_list": {
+    "gt": {
+      "stdout": "[7, 8, 9] [3, 4] [7, 8]\n"
+    },
+    "rationale": "Genexp in class body closes over module n; bare name n in list uses class-local after assignment.",
+    "W": {
+      "pass": true,
+      "ans": "{\"stdout\":\"[7, 8, 9] [3, 4] [7, 8]\\n\"}",
+      "tok": 2597
+    },
+    "S": {
+      "pass": true,
+      "ans": "{\"stdout\":\"[7, 8, 9] [3, 4] [7, 8]\\n\"}",
+      "tok": 3695
+    }
+  },
+  "05_annotations": {
+    "gt": {
+      "stdout": "inner {'a': 'X'} ('inner', {'a': 'X'})\n"
+    },
+    "rationale": "Class-body annotations evaluate with class locals visible sequentially.",
+    "W": {
+      "pass": false,
+      "ans": "{\"stdout\":\"inner {'a': 'inner'} ('inner', {'a': 'inner'})\\n\"}",
+      "tok": 6088
+    },
+    "S": {
+      "pass": false,
+      "ans": "{\"stdout\":\"inner {'a': 'inner'} ('inner', {'a': 'inner'})\\n\"}",
+      "tok": 4598
+    }
+  },
+  "06_decorator_default": {
+    "gt": {
+      "stdout": "class True ['class']\n"
+    },
+    "rationale": "Default args in methods resolve at function def time using class namespace.",
+    "W": {
+      "pass": true,
+      "ans": "{\"stdout\":\"class True ['class']\\n\"}",
+      "tok": 2482
+    },
+    "S": {
+      "pass": true,
+      "ans": "{\"stdout\":\"class True ['class']\\n\"}",
+      "tok": 6169
+    }
+  },
+  "07_lambda_scopes": {
+    "gt": {
+      "stdout": "mod cls mod\n"
+    },
+    "rationale": "lambda: a in class body closes over module; default a=a captures class; listcomp lambda closes over module.",
+    "W": {
+      "pass": false,
+      "ans": "<no_final L=0>",
+      "tok": 8192
+    },
+    "S": {
+      "pass": true,
+      "ans": "{\"stdout\":\"mod cls mod\\n\"}",
+      "tok": 6324
+    }
+  },
+  "08_mro_super": {
+    "gt": {
+      "stdout": "DCBA\n['D', 'C', 'B', 'A', 'object']\n"
+    },
+    "rationale": "Cooperative super MRO order C before B.",
+    "W": {
+      "pass": true,
+      "ans": "{\"stdout\":\"DCBA\\n['D', 'C', 'B', 'A', 'object']\\n\"}",
+      "tok": 920
+    },
+    "S": {
+      "pass": true,
+      "ans": "{\"stdout\":\"DCBA\\n['D', 'C', 'B', 'A', 'object']\\n\"}",
+      "tok": 1144
+    }
+  },
+  "09_bool_len": {
+    "gt": {
+      "stdout": "bool\nFalse\nlen2\nFalse\n"
+    },
+    "rationale": "__bool__ preferred over __len__ for truthiness.",
+    "W": {
+      "pass": true,
+      "ans": "{\"stdout\":\"bool\\nFalse\\nlen2\\nFalse\\n\"}",
+      "tok": 584
+    },
+    "S": {
+      "pass": true,
+      "ans": "{\"stdout\":\"bool\\nFalse\\nlen2\\nFalse\\n\"}",
+      "tok": 721
+    }
+  },
+  "10_dst_footgun": {
+    "gt": {
+      "absolute_hours": 25.0,
+      "same_tzinfo_sub_hours": 26.0,
+      "ghost_offset_h": -8.0,
+      "span_sec": 7200.0
+    },
+    "rationale": "Same-tzinfo datetime subtraction uses wall time; timestamp() is absolute; spring-forward ghost keeps fold=0 PST offset.",
+    "W": {
+      "pass": true,
+      "ans": "{\"absolute_hours\":25.0,\"same_tzinfo_sub_hours\":26.0,\"ghost_offset_h\":-8.0,\"span_sec\":7200.0}",
+      "tok": 2901
+    },
+    "S": {
+      "pass": false,
+      "ans": "<no_final L=0>",
+      "tok": 8192
+    }
+  }
+}

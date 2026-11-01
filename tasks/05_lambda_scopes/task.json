@@ -1,0 +1,8 @@
+{
+  "id": "05_lambda_scopes",
+  "title": "Three lambdas in a class body",
+  "category": "legb_class_body",
+  "difficulty": "hard",
+  "failure_mode": "Bare lambda and listcomp-lambda close over module; default-arg lambda captures class. Models collapse these cases.",
+  "python": "3.13"
+}

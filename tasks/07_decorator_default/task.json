@@ -1,0 +1,8 @@
+{
+  "id": "07_decorator_default",
+  "title": "Decorator + default in class",
+  "category": "legb_class_body",
+  "difficulty": "hard",
+  "failure_mode": "Defaults and list literals in class bodies see class locals; some models still pull module `q`.",
+  "python": "3.13"
+}

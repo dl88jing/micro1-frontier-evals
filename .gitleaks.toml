@@ -1,0 +1,6 @@
+title = "PyScope gitleaks"
+[allowlist]
+  description = "allow examples"
+  paths = [
+    '''\.env\.example$''',
+  ]

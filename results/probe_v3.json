@@ -1,0 +1,228 @@
+{
+  "01_class_scope": {
+    "gt": {
+      "stdout": "outer outer class arg\n"
+    },
+    "wonder": {
+      "ans": "<no_final L=0>",
+      "tok": 4096,
+      "pass": false
+    },
+    "spark": {
+      "ans": "<no_final L=0>",
+      "tok": 4096,
+      "pass": false
+    },
+    "spark13": {
+      "ans": "<no_final L=0>",
+      "tok": 4096,
+      "pass": false
+    }
+  },
+  "02_nested_class": {
+    "gt": {
+      "stdout": "2 12 1 1\n"
+    },
+    "wonder": {
+      "ans": "{\"stdout\":\"2 12 1 1\\n\"}",
+      "tok": 1909,
+      "pass": true
+    },
+    "spark": {
+      "ans": "{\"stdout\":\"2 12 1 1\\n\"}",
+      "tok": 2567,
+      "pass": true
+    },
+    "spark13": {
+      "ans": "{\"stdout\":\"2 12 1 1\\n\"}",
+      "tok": 3338,
+      "pass": true
+    }
+  },
+  "03_raise_from": {
+    "gt": {
+      "stdout": "TypeError outer\nValueError inner\nTrue\n"
+    },
+    "wonder": {
+      "ans": "{\"stdout\":\"TypeError outer\\nValueError inner\\nTrue\\n\"}",
+      "tok": 1187,
+      "pass": true
+    },
+    "spark": {
+      "ans": "{\"stdout\":\"TypeError outer\\nValueError inner\\nTrue\\n\"}",
+      "tok": 1416,
+      "pass": true
+    },
+    "spark13": {
+      "ans": "{\"stdout\":\"TypeError outer\\nValueError inner\\nTrue\\n\"}",
+      "tok": 1687,
+      "pass": true
+    }
+  },
+  "04_descriptor": {
+    "gt": {
+      "stdout": "('get', None) ('get', 0)\n('get', 11) 11\n"
+    },
+    "wonder": {
+      "ans": "{\"stdout\":\"('get', None) ('get', 0)\\n('get', 11) 11\\n\"}",
+      "tok": 715,
+      "pass": true
+    },
+    "spark": {
+      "ans": "{\"stdout\":\"('get', None) ('get', 0)\\n('get', 11) 11\\n\"}",
+      "tok": 942,
+      "pass": true
+    },
+    "spark13": {
+      "ans": "{\"stdout\":\"('get', None) ('get', 0)\\n('get', 11) 11\\n\"}",
+      "tok": 1637,
+      "pass": true
+    }
+  },
+  "05_divmod_neg": {
+    "gt": {
+      "stdout": "(-3, 2)\n(-3, -2)\n(2, -1)\n-3 2\n-3 -2\n"
+    },
+    "wonder": {
+      "ans": "{\"stdout\":\"(-3, 2)\\n(-3, -2)\\n(2, -1)\\n-3 2\\n-3 -2\\n\"}",
+      "tok": 1007,
+      "pass": true
+    },
+    "spark": {
+      "ans": "{\"stdout\":\"(-3, 2)\\n(-3, -2)\\n(2, -1)\\n-3 2\\n-3 -2\\n\"}",
+      "tok": 1001,
+      "pass": true
+    },
+    "spark13": {
+      "ans": "{\"stdout\":\"(-3, 2)\\n(-3, -2)\\n(2, -1)\\n-3 2\\n-3 -2\\n\"}",
+      "tok": 1158,
+      "pass": true
+    }
+  },
+  "06_format": {
+    "gt": {
+      "stdout": "00042\n0x2a\n101010\n3.142\n   hello\nhe\n1,000,000\n50%\n"
+    },
+    "wonder": {
+      "ans": "{\"stdout\":\"00042\\n0x2a\\n101010\\n3.142\\n   hello\\nhe\\n1,000,000\\n50%\\n\"}",
+      "tok": 872,
+      "pass": true
+    },
+    "spark": {
+      "ans": "{\"stdout\":\"00042\\n0x2a\\n101010\\n3.142\\n   hello\\nhe\\n1,000,000\\n50%\\n\"}",
+      "tok": 821,
+      "pass": true
+    },
+    "spark13": {
+      "ans": "{\"stdout\":\"00042\\n0x2a\\n101010\\n3.142\\n   hello\\nhe\\n1,000,000\\n50%\\n\"}",
+      "tok": 1590,
+      "pass": true
+    }
+  },
+  "07_train_meet": {
+    "gt": {
+      "km_from_A": 18.0,
+      "hours": 0.36
+    },
+    "wonder": {
+      "ans": "{\"km_from_A\":18.0,\"hours\":0.36}",
+      "tok": 829,
+      "pass": true
+    },
+    "spark": {
+      "ans": "{\"km_from_A\":18,\"hours\":0.36}",
+      "tok": 1872,
+      "pass": true
+    },
+    "spark13": {
+      "ans": "{\"km_from_A\":18,\"hours\":0.36}",
+      "tok": 1464,
+      "pass": true
+    }
+  },
+  "09_rpn": {
+    "gt": {
+      "value": 8,
+      "abs_binary": "1000"
+    },
+    "wonder": {
+      "ans": "{\"value\":8,\"abs_binary\":\"1000\"}",
+      "tok": 1221,
+      "pass": true
+    },
+    "spark": {
+      "ans": "{\"value\":8,\"abs_binary\":\"1000\"}",
+      "tok": 3458,
+      "pass": true
+    },
+    "spark13": {
+      "ans": "{\"value\":8,\"abs_binary\":\"1000\"}",
+      "tok": 1410,
+      "pass": true
+    }
+  },
+  "10_iso_edge": {
+    "gt": {
+      "d2005": "2004-W53",
+      "w53": "2021-01-01",
+      "weeks_2026": 53,
+      "wd_2026_0101": 4,
+      "mon_w01": "2025-12-29"
+    },
+    "wonder": {
+      "ans": "{\"d2005\":\"2004-W53\",\"w53\":\"2021-01-01\",\"weeks_2026\":53,\"wd_2026_0101\":4,\"mon_w01\":\"2025-12-29\"}",
+      "tok": 2212,
+      "pass": true
+    },
+    "spark": {
+      "ans": "{\"d2005\":\"2004-W53\",\"w53\":\"2021-01-01\",\"weeks_2026\":53,\"wd_2026_0101\":4,\"mon_w01\":\"2025-12-29\"}",
+      "tok": 3399,
+      "pass": true
+    },
+    "spark13": {
+      "ans": "{\"d2005\":\"2004-W53\",\"w53\":\"2021-01-01\",\"weeks_2026\":53,\"wd_2026_0101\":4,\"mon_w01\":\"2025-12-29\"}",
+      "tok": 3793,
+      "pass": true
+    }
+  },
+  "11_metaclass": {
+    "gt": {
+      "stdout": "a 4 True True\n"
+    },
+    "wonder": {
+      "ans": "{\"stdout\":\"a 4 True True\\n\"}",
+      "tok": 579,
+      "pass": true
+    },
+    "spark": {
+      "ans": "{\"stdout\":\"a 4 True True\\n\"}",
+      "tok": 885,
+      "pass": true
+    },
+    "spark13": {
+      "ans": "{\"stdout\":\"a 4 True True\\n\"}",
+      "tok": 1148,
+      "pass": true
+    }
+  },
+  "12_nan": {
+    "gt": {
+      "stdout": "False True\n1\nValueError\nTrue\n"
+    },
+    "wonder": {
+      "ans": "{\"stdout\":\"False True\\n1\\nValueError\\nTrue\\n\"}",
+      "tok": 1175,
+      "pass": true
+    },
+    "spark": {
+      "ans": "{\"stdout\":\"False True\\n1\\nValueError\\nTrue\\n\"}",
+      "tok": 801,
+      "pass": true
+    },
+    "spark13": {
+      "ans": "{\"stdout\":\"False True\\n1\\nValueError\\nTrue\\n\"}",
+      "tok": 1485,
+      "pass": true
+    }
+  }
+}

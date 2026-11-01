@@ -1,0 +1,2 @@
+# PyScope LEGB frontier eval — optional OpenAI-compatible client for model runs.
+openai>=1.40.0

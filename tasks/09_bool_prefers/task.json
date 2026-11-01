@@ -1,0 +1,8 @@
+{
+  "id": "09_bool_prefers",
+  "title": "bool() prefers __bool__ over __len__",
+  "category": "object_model",
+  "difficulty": "hard",
+  "failure_mode": "Models call __len__ even when __bool__ exists, or skip the len2 fallback.",
+  "python": "3.13"
+}

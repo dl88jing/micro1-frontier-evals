@@ -1,0 +1,56 @@
+{
+  "oracle": [
+    {
+      "task": "01_listcomp_class",
+      "pass": true,
+      "detail": "exact match"
+    },
+    {
+      "task": "02_nested_listcomp",
+      "pass": true,
+      "detail": "exact match"
+    },
+    {
+      "task": "03_class_local_bind",
+      "pass": true,
+      "detail": "exact match"
+    },
+    {
+      "task": "04_genexp_vs_list",
+      "pass": true,
+      "detail": "exact match"
+    },
+    {
+      "task": "05_lambda_scopes",
+      "pass": true,
+      "detail": "exact match"
+    },
+    {
+      "task": "06_annotations_class",
+      "pass": true,
+      "detail": "exact match"
+    },
+    {
+      "task": "07_decorator_default",
+      "pass": true,
+      "detail": "exact match"
+    },
+    {
+      "task": "08_mro_super",
+      "pass": true,
+      "detail": "exact match"
+    },
+    {
+      "task": "09_bool_prefers",
+      "pass": true,
+      "detail": "exact match"
+    },
+    {
+      "task": "10_dst_footgun",
+      "pass": true,
+      "detail": "exact match"
+    }
+  ],
+  "pass_count": 10,
+  "total": 10
+}

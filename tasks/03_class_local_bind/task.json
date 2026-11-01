@@ -1,0 +1,8 @@
+{
+  "id": "03_class_local_bind",
+  "title": "Class-body local binding NameError",
+  "category": "legb_class_body",
+  "difficulty": "hard",
+  "failure_mode": "Models miss that assigning to `x` anywhere in a class nested in a function makes `x` local for the whole class body, so `y = x + 1` raises NameError.",
+  "python": "3.13"
+}
