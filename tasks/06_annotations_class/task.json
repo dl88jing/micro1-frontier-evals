@@ -1,8 +1,0 @@
-{
-  "id": "06_annotations_class",
-  "title": "Class annotation evaluation order",
-  "category": "legb_class_body",
-  "difficulty": "hard",
-  "failure_mode": "Without from __future__ import annotations, class annotations evaluate eagerly with class locals; models confuse this with stringified annotations.",
-  "python": "3.13"
-}

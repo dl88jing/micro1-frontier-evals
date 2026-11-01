@@ -1,0 +1,9 @@
+{
+  "id": "06_default_fallthrough",
+  "title": "Default LOAD_NAME fallthrough vs method closure",
+  "category": "legb_class_body",
+  "difficulty": "hard",
+  "failure_mode": "Models unify default and free-var lookup, predicting both see the enclosing function local.",
+  "python": "3.13",
+  "probe_fails": ">=2 of wonder/spark/beam (see results/probe_*.json)"
+}
