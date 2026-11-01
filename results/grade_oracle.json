@@ -16,37 +16,37 @@
       "detail": "exact match"
     },
     {
-      "task": "04_genexp_vs_list",
+      "task": "04_default_shadow",
       "pass": true,
       "detail": "exact match"
     },
     {
-      "task": "05_lambda_scopes",
+      "task": "05_genexp_late_bind",
       "pass": true,
       "detail": "exact match"
     },
     {
-      "task": "06_annotations_class",
+      "task": "06_default_fallthrough",
       "pass": true,
       "detail": "exact match"
     },
     {
-      "task": "07_decorator_default",
+      "task": "07_method_reads_shadow",
       "pass": true,
       "detail": "exact match"
     },
     {
-      "task": "08_mro_super",
+      "task": "08_nested_two_shadows",
       "pass": true,
       "detail": "exact match"
     },
     {
-      "task": "09_bool_prefers",
+      "task": "09_pep695_type_param",
       "pass": true,
       "detail": "exact match"
     },
     {
-      "task": "10_dst_footgun",
+      "task": "10_walrus_and_default",
       "pass": true,
       "detail": "exact match"
     }
