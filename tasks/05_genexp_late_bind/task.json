@@ -1,0 +1,9 @@
+{
+  "id": "05_genexp_late_bind",
+  "title": "Class genexp vs listcomp with late assign",
+  "category": "legb_class_body",
+  "difficulty": "hard",
+  "failure_mode": "Models treat class-body listcomps like they see the later class attribute `n`.",
+  "python": "3.13",
+  "probe_fails": ">=2 of wonder/spark/beam (see results/probe_*.json)"
+}
