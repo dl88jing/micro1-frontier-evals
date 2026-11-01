@@ -1,0 +1,272 @@
+{
+  "walrus_class_syntax": {
+    "gt": "SyntaxError\n",
+    "models": {
+      "wonder": {
+        "pass": true,
+        "pred": "SyntaxError\n"
+      },
+      "spark": {
+        "pass": false,
+        "pred": null
+      },
+      "beam": {
+        "pass": true,
+        "pred": "SyntaxError\n"
+      }
+    },
+    "fail_count": 1
+  },
+  "default_shadow_assign": {
+    "gt": "NameError\n",
+    "models": {
+      "wonder": {
+        "pass": false,
+        "pred": "(['outer'], ['class'])\n"
+      },
+      "spark": {
+        "pass": false,
+        "pred": "(['outer'], ['class'])\n"
+      },
+      "beam": {
+        "pass": true,
+        "pred": "NameError\n"
+      }
+    },
+    "fail_count": 2
+  },
+  "super_nested_runtime": {
+    "gt": "RuntimeError\n",
+    "models": {
+      "wonder": {
+        "pass": true,
+        "pred": "RuntimeError\n"
+      },
+      "spark": {
+        "pass": true,
+        "pred": "RuntimeError\n"
+      },
+      "beam": {
+        "pass": true,
+        "pred": "RuntimeError\n"
+      }
+    },
+    "fail_count": 0
+  },
+  "exc_delete": {
+    "gt": "division by zero|NameError\n",
+    "models": {
+      "wonder": {
+        "pass": true,
+        "pred": "division by zero|NameError\n"
+      },
+      "spark": {
+        "pass": true,
+        "pred": "division by zero|NameError\n"
+      },
+      "beam": {
+        "pass": true,
+        "pred": "division by zero|NameError\n"
+      }
+    },
+    "fail_count": 0
+  },
+  "genexp_late_bind": {
+    "gt": "[5, 5] [5, 5] 99\n",
+    "models": {
+      "wonder": {
+        "pass": false,
+        "pred": "[5, 5] [99, 99] 99\n"
+      },
+      "spark": {
+        "pass": false,
+        "pred": "[5, 5] [99, 99] 99\n"
+      },
+      "beam": {
+        "pass": true,
+        "pred": "[5, 5] [5, 5] 99"
+      }
+    },
+    "fail_count": 2
+  },
+  "pep695_shadow": {
+    "gt": "mod cls T\n",
+    "models": {
+      "wonder": {
+        "pass": false,
+        "pred": null
+      },
+      "spark": {
+        "pass": false,
+        "pred": null
+      },
+      "beam": {
+        "pass": false,
+        "pred": null
+      }
+    },
+    "fail_count": 3
+  },
+  "type_alias_param": {
+    "gt": "Vec T list[T]\n",
+    "models": {
+      "wonder": {
+        "pass": true,
+        "pred": "Vec T list[T]\n"
+      },
+      "spark": {
+        "pass": true,
+        "pred": "Vec T list[T]\n"
+      },
+      "beam": {
+        "pass": false,
+        "pred": "Vec T list[~T]"
+      }
+    },
+    "fail_count": 1
+  },
+  "pep709_class_x": {
+    "gt": "[1, 2] 7 NO 7\n",
+    "models": {
+      "wonder": {
+        "pass": false,
+        "pred": null
+      },
+      "spark": {
+        "pass": true,
+        "pred": "[1, 2] 7 NO 7\n"
+      },
+      "beam": {
+        "pass": true,
+        "pred": "[1, 2] 7 NO 7\n"
+      }
+    },
+    "fail_count": 1
+  },
+  "class_cell_listcomp": {
+    "gt": "B\n",
+    "models": {
+      "wonder": {
+        "pass": true,
+        "pred": "B\n"
+      },
+      "spark": {
+        "pass": true,
+        "pred": "B\n"
+      },
+      "beam": {
+        "pass": true,
+        "pred": "B"
+      }
+    },
+    "fail_count": 0
+  },
+  "ann_future_absent": {
+    "gt": "{'a': 'cls', 'b': list['cls']}\n",
+    "models": {
+      "wonder": {
+        "pass": true,
+        "pred": "{'a': 'cls', 'b': list['cls']}\n"
+      },
+      "spark": {
+        "pass": true,
+        "pred": "{'a': 'cls', 'b': list['cls']}\n"
+      },
+      "beam": {
+        "pass": true,
+        "pred": "{'a': 'cls', 'b': list['cls']}\n"
+      }
+    },
+    "fail_count": 0
+  },
+  "method_reads_later_assign": {
+    "gt": "NameError\n",
+    "models": {
+      "wonder": {
+        "pass": false,
+        "pred": "(11, 10, 101)\n"
+      },
+      "spark": {
+        "pass": false,
+        "pred": "(11, 10, 101)\n"
+      },
+      "beam": {
+        "pass": false,
+        "pred": "UnboundLocalError\n"
+      }
+    },
+    "fail_count": 3
+  },
+  "dictcomp_vs_default": {
+    "gt": "{0: 'G', 1: 'G'} C\n",
+    "models": {
+      "wonder": {
+        "pass": true,
+        "pred": "{0: 'G', 1: 'G'} C\n"
+      },
+      "spark": {
+        "pass": false,
+        "pred": "{0: 'C', 1: 'C'} C\n"
+      },
+      "beam": {
+        "pass": true,
+        "pred": "{0: 'G', 1: 'G'} C\n"
+      }
+    },
+    "fail_count": 1
+  },
+  "setcomp_module": {
+    "gt": "[3, 6] 100\n",
+    "models": {
+      "wonder": {
+        "pass": true,
+        "pred": "[3, 6] 100\n"
+      },
+      "spark": {
+        "pass": true,
+        "pred": "[3, 6] 100\n"
+      },
+      "beam": {
+        "pass": true,
+        "pred": "[3, 6] 100\n"
+      }
+    },
+    "fail_count": 0
+  },
+  "lambda_immediate": {
+    "gt": "mod cls mod\n",
+    "models": {
+      "wonder": {
+        "pass": false,
+        "pred": "mod cls cls\n"
+      },
+      "spark": {
+        "pass": true,
+        "pred": "mod cls mod\n"
+      },
+      "beam": {
+        "pass": true,
+        "pred": "mod cls mod\n"
+      }
+    },
+    "fail_count": 1
+  },
+  "nested_class_local_read": {
+    "gt": "NameError\n",
+    "models": {
+      "wonder": {
+        "pass": false,
+        "pred": null
+      },
+      "spark": {
+        "pass": false,
+        "pred": "(1, 1, 2)\n"
+      },
+      "beam": {
+        "pass": false,
+        "pred": "UnboundLocalError\n"
+      }
+    },
+    "fail_count": 3
+  }
+}

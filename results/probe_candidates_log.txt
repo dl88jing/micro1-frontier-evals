@@ -1,0 +1,168 @@
+ORACLE walrus_class_syntax: 'SyntaxError\n'
+ORACLE default_shadow_assign: 'NameError\n'
+ORACLE super_nested_runtime: 'RuntimeError\n'
+ORACLE exc_delete: 'division by zero|NameError\n'
+ORACLE genexp_late_bind: '[5, 5] [5, 5] 99\n'
+ORACLE pep695_shadow: 'mod cls T\n'
+ORACLE type_alias_param: 'Vec T list[T]\n'
+ORACLE pep709_class_x: '[1, 2] 7 NO 7\n'
+ORACLE class_cell_listcomp: 'B\n'
+ORACLE ann_future_absent: "{'a': 'cls', 'b': list['cls']}\n"
+ORACLE method_reads_later_assign: 'NameError\n'
+ORACLE dictcomp_vs_default: "{0: 'G', 1: 'G'} C\n"
+ORACLE setcomp_module: '[3, 6] 100\n'
+ORACLE lambda_immediate: 'mod cls mod\n'
+ORACLE nested_class_local_read: 'NameError\n'
+CLIENTS ['wonder', 'spark', 'beam']
+ASK walrus_class_syntax wonder...
+  wonder PASS pred='SyntaxError\n'
+ASK walrus_class_syntax spark...
+  spark FAIL pred=None
+ASK walrus_class_syntax beam...
+  beam PASS pred='SyntaxError\n'
+ASK default_shadow_assign wonder...
+  wonder FAIL pred="(['outer'], ['class'])\n"
+ASK default_shadow_assign spark...
+  spark FAIL pred="(['outer'], ['class'])\n"
+ASK default_shadow_assign beam...
+  beam PASS pred='NameError\n'
+ASK super_nested_runtime wonder...
+  wonder PASS pred='RuntimeError\n'
+ASK super_nested_runtime spark...
+  spark PASS pred='RuntimeError\n'
+ASK super_nested_runtime beam...
+  beam PASS pred='RuntimeError\n'
+ASK exc_delete wonder...
+  wonder PASS pred='division by zero|NameError\n'
+ASK exc_delete spark...
+  spark PASS pred='division by zero|NameError\n'
+ASK exc_delete beam...
+  beam PASS pred='division by zero|NameError\n'
+ASK genexp_late_bind wonder...
+  wonder FAIL pred='[5, 5] [99, 99] 99\n'
+ASK genexp_late_bind spark...
+  spark FAIL pred='[5, 5] [99, 99] 99\n'
+ASK genexp_late_bind beam...
+  beam PASS pred='[5, 5] [5, 5] 99'
+ASK pep695_shadow wonder...
+  wonder FAIL pred=None
+ASK pep695_shadow spark...
+  spark FAIL pred=None
+ASK pep695_shadow beam...
+  beam FAIL pred=None
+ASK type_alias_param wonder...
+  wonder PASS pred='Vec T list[T]\n'
+ASK type_alias_param spark...
+  spark PASS pred='Vec T list[T]\n'
+ASK type_alias_param beam...
+  beam FAIL pred='Vec T list[~T]'
+ASK pep709_class_x wonder...
+  wonder FAIL pred=None
+ASK pep709_class_x spark...
+  spark PASS pred='[1, 2] 7 NO 7\n'
+ASK pep709_class_x beam...
+  beam PASS pred='[1, 2] 7 NO 7\n'
+ASK class_cell_listcomp wonder...
+  wonder PASS pred='B\n'
+ASK class_cell_listcomp spark...
+  spark PASS pred='B\n'
+ASK class_cell_listcomp beam...
+  beam PASS pred='B'
+ASK ann_future_absent wonder...
+  wonder PASS pred="{'a': 'cls', 'b': list['cls']}\n"
+ASK ann_future_absent spark...
+  spark PASS pred="{'a': 'cls', 'b': list['cls']}\n"
+ASK ann_future_absent beam...
+  beam PASS pred="{'a': 'cls', 'b': list['cls']}\n"
+ASK method_reads_later_assign wonder...
+  wonder FAIL pred='(11, 10, 101)\n'
+ASK method_reads_later_assign spark...
+  spark FAIL pred='(11, 10, 101)\n'
+ASK method_reads_later_assign beam...
+  beam FAIL pred='UnboundLocalError\n'
+ASK dictcomp_vs_default wonder...
+  wonder PASS pred="{0: 'G', 1: 'G'} C\n"
+ASK dictcomp_vs_default spark...
+  spark FAIL pred="{0: 'C', 1: 'C'} C\n"
+ASK dictcomp_vs_default beam...
+  beam PASS pred="{0: 'G', 1: 'G'} C\n"
+ASK setcomp_module wonder...
+  wonder PASS pred='[3, 6] 100\n'
+ASK setcomp_module spark...
+  spark PASS pred='[3, 6] 100\n'
+ASK setcomp_module beam...
+  beam PASS pred='[3, 6] 100\n'
+ASK lambda_immediate wonder...
+  wonder FAIL pred='mod cls cls\n'
+ASK lambda_immediate spark...
+  spark PASS pred='mod cls mod\n'
+ASK lambda_immediate beam...
+  beam PASS pred='mod cls mod\n'
+ASK nested_class_local_read wonder...
+  wonder FAIL pred=None
+ASK nested_class_local_read spark...
+  spark FAIL pred='(1, 1, 2)\n'
+ASK nested_class_local_read beam...
+  beam FAIL pred='UnboundLocalError\n'
+
+=== SUMMARY (fail_count / models) ===
+walrus_class_syntax: fails=1 gt='SyntaxError\n'
+  wonder: PASS 'SyntaxError\n'
+  spark: FAIL None
+  beam: PASS 'SyntaxError\n'
+default_shadow_assign: fails=2 gt='NameError\n'
+  wonder: FAIL "(['outer'], ['class'])\n"
+  spark: FAIL "(['outer'], ['class'])\n"
+  beam: PASS 'NameError\n'
+super_nested_runtime: fails=0 gt='RuntimeError\n'
+  wonder: PASS 'RuntimeError\n'
+  spark: PASS 'RuntimeError\n'
+  beam: PASS 'RuntimeError\n'
+exc_delete: fails=0 gt='division by zero|NameError\n'
+  wonder: PASS 'division by zero|NameError\n'
+  spark: PASS 'division by zero|NameError\n'
+  beam: PASS 'division by zero|NameError\n'
+genexp_late_bind: fails=2 gt='[5, 5] [5, 5] 99\n'
+  wonder: FAIL '[5, 5] [99, 99] 99\n'
+  spark: FAIL '[5, 5] [99, 99] 99\n'
+  beam: PASS '[5, 5] [5, 5] 99'
+pep695_shadow: fails=3 gt='mod cls T\n'
+  wonder: FAIL None
+  spark: FAIL None
+  beam: FAIL None
+type_alias_param: fails=1 gt='Vec T list[T]\n'
+  wonder: PASS 'Vec T list[T]\n'
+  spark: PASS 'Vec T list[T]\n'
+  beam: FAIL 'Vec T list[~T]'
+pep709_class_x: fails=1 gt='[1, 2] 7 NO 7\n'
+  wonder: FAIL None
+  spark: PASS '[1, 2] 7 NO 7\n'
+  beam: PASS '[1, 2] 7 NO 7\n'
+class_cell_listcomp: fails=0 gt='B\n'
+  wonder: PASS 'B\n'
+  spark: PASS 'B\n'
+  beam: PASS 'B'
+ann_future_absent: fails=0 gt="{'a': 'cls', 'b': list['cls']}\n"
+  wonder: PASS "{'a': 'cls', 'b': list['cls']}\n"
+  spark: PASS "{'a': 'cls', 'b': list['cls']}\n"
+  beam: PASS "{'a': 'cls', 'b': list['cls']}\n"
+method_reads_later_assign: fails=3 gt='NameError\n'
+  wonder: FAIL '(11, 10, 101)\n'
+  spark: FAIL '(11, 10, 101)\n'
+  beam: FAIL 'UnboundLocalError\n'
+dictcomp_vs_default: fails=1 gt="{0: 'G', 1: 'G'} C\n"
+  wonder: PASS "{0: 'G', 1: 'G'} C\n"
+  spark: FAIL "{0: 'C', 1: 'C'} C\n"
+  beam: PASS "{0: 'G', 1: 'G'} C\n"
+setcomp_module: fails=0 gt='[3, 6] 100\n'
+  wonder: PASS '[3, 6] 100\n'
+  spark: PASS '[3, 6] 100\n'
+  beam: PASS '[3, 6] 100\n'
+lambda_immediate: fails=1 gt='mod cls mod\n'
+  wonder: FAIL 'mod cls cls\n'
+  spark: PASS 'mod cls mod\n'
+  beam: PASS 'mod cls mod\n'
+nested_class_local_read: fails=3 gt='NameError\n'
+  wonder: FAIL None
+  spark: FAIL '(1, 1, 2)\n'
+  beam: FAIL 'UnboundLocalError\n'
