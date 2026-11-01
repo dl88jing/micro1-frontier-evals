@@ -25,7 +25,7 @@ def load_clients():
     meta = Path("/workspace/meta-hack/.meta_api_key")
     if meta.exists():
         clients["muse-wonder-1.0"] = (
-            OpenAI(api_key=meta.read_text().strip(), base_url="https://api.meta.ai/v1", timeout=400),
+            OpenAI(api_key=meta.read_text().strip(), base_url="https://api.meta.ai/v1", timeout=90),
             "muse-wonder-1.0",
         )
     baseten = Path("/home/box/.config/seefix/baseten.env")
@@ -36,13 +36,13 @@ def load_clients():
             if "=" in l and not l.startswith("#")
         }
         clients["muse-spark-open-1026"] = (
-            OpenAI(api_key=env["BASETEN_API_KEY"], base_url=env["BASETEN_BASE_URL"], timeout=400),
+            OpenAI(api_key=env["BASETEN_API_KEY"], base_url=env["BASETEN_BASE_URL"], timeout=90),
             env.get("BASETEN_MODEL", "meta-models/muse-spark-open-1026"),
         )
     beam = Path("/workspace/beam-hack/.reflection_api_key")
     if beam.exists():
         clients["Beam-1.0-501B-A23B"] = (
-            OpenAI(api_key=beam.read_text().strip(), base_url="https://api.reflection.ai/openai/v1", timeout=400),
+            OpenAI(api_key=beam.read_text().strip(), base_url="https://api.reflection.ai/openai/v1", timeout=90),
             "Beam-1.0-501B-A23B",
         )
     # Nebius only if a real (non-placeholder) key is present
@@ -57,7 +57,7 @@ def load_clients():
         if nk and "SENSITIVE" not in nk and len(nk) > 20:
             nb = env.get("NEBIUS_BASE_URL") or "https://api.tokenfactory.us-central1.nebius.com/v1/"
             clients["deepseek-ai/DeepSeek-V3"] = (
-                OpenAI(api_key=nk, base_url=nb, timeout=400),
+                OpenAI(api_key=nk, base_url=nb, timeout=90),
                 "deepseek-ai/DeepSeek-V3",
             )
     return clients
@@ -66,11 +66,11 @@ def load_clients():
 def ask(client: OpenAI, model: str, prompt: str) -> tuple[str, int]:
     text = ""
     tok = 0
-    for attempt in range(3):
+    for attempt in range(2):
         r = client.chat.completions.create(
             model=model,
             temperature=0,
-            max_tokens=8192,
+            max_tokens=2048,
             messages=[
                 {
                     "role": "system",
