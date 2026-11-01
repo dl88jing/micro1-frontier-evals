@@ -1,8 +1,0 @@
-{
-  "id": "04_genexp_vs_list",
-  "title": "Genexp vs bare name in class",
-  "category": "legb_class_body",
-  "difficulty": "hard",
-  "failure_mode": "Genexps close over module `n`; list displays use class-local `n`. Models often unify them.",
-  "python": "3.13"
-}

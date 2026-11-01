@@ -1,0 +1,9 @@
+{
+  "id": "04_default_shadow",
+  "title": "Default arg then class assign \u2192 NameError",
+  "category": "legb_class_body",
+  "difficulty": "hard",
+  "failure_mode": "Models evaluate `a=x` as if it closed over the enclosing list, ignoring that later `x = ...` makes x class-local for the whole body so the default raises NameError.",
+  "python": "3.13",
+  "probe_fails": ">=2 of wonder/spark/beam (see results/probe_*.json)"
+}
