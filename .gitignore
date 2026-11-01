@@ -17,3 +17,8 @@ node_modules/
 *.bin
 render.log
 *.zip
+video/captures/
+video/node_modules/
+video/renders/v2-frames/
+video/renders/*.log
+video/package-lock.json

@@ -1,0 +1,40 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+html,body{margin:0;width:1920px;height:1080px;background:#0b0d12;overflow:hidden;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+#term{position:absolute;inset:40px;border-radius:16px;border:1px solid #2a3148;background:#0f1219;
+  box-shadow:0 30px 80px rgba(0,0,0,.55);padding:24px 28px;color:#d7deef;font-size:20px;line-height:1.4;white-space:pre-wrap;overflow:hidden}
+#badge{position:fixed;left:64px;bottom:28px;background:rgba(15,18,25,.92);border:1px solid #2a3148;border-radius:999px;
+  padding:10px 18px;color:#e5e7eb;font:600 16px Inter,system-ui,sans-serif}
+#badge::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#34d399;margin-right:8px;box-shadow:0 0 8px #34d399}
+</style></head>
+<body>
+<pre id="term"><span id="buf"></span><span id="cursor">▌</span></pre>
+<div id="badge">Terminal · unittest + graders/run_all.py · oracle 10/10</div>
+<script>
+const lines = "box@pyscope:~/micro1-frontier-evals$ .venv/bin/python -m unittest discover -s tests -v\ntest_empty (test_grader.ExtractFinalAnswerTests.test_empty) ... ok\ntest_fenced_json_fallback (test_grader.ExtractFinalAnswerTests.test_fenced_json_fallback) ... ok\ntest_prefix (test_grader.ExtractFinalAnswerTests.test_prefix) ... ok\ntest_oracle_ten_of_ten (test_grader.OracleAndTaskShapeTests.test_oracle_ten_of_ten) ... ok\ntest_summary_matrix_matches_headline (test_grader.OracleAndTaskShapeTests.test_summary_matrix_matches_headline)\nGuard against drifting README / results page numbers. ... ok\ntest_ten_tasks (test_grader.OracleAndTaskShapeTests.test_ten_tasks) ... ok\ntest_exact_match (test_grader.ParseAndGradeTests.test_exact_match) ... ok\ntest_mismatch (test_grader.ParseAndGradeTests.test_mismatch) ... ok\ntest_newline_normalization (test_grader.ParseAndGradeTests.test_newline_normalization) ... ok\ntest_parse_json_answer_object (test_grader.ParseAndGradeTests.test_parse_json_answer_object) ... ok\ntest_unparseable (test_grader.ParseAndGradeTests.test_unparseable) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.003s\n\nOK\n\nbox@pyscope:~/micro1-frontier-evals$ .venv/bin/python graders/run_all.py\n{\n  \"oracle\": [\n    {\n      \"task\": \"01_listcomp_class\",\n      \"pass\": true,\n      \"detail\": \"exact match\"\n    },\n    {\n      \"task\": \"02_nested_listcomp\",\n      \"pass\": true,\n      \"detail\": \"exact match\"\n    },\n    {\n      \"task\": \"03_class_local_bind\",\n      \"pass\": true,\n      \"detail\": \"exact match\"\n    },\n    {\n      \"task\": \"04_default_shadow\",\n      \"pass\": true,\n      \"detail\": \"exact match\"\n    },\n    {\n      \"task\": \"05_genexp_late_bind\",\n      \"pass\": true,\n      \"detail\": \"exact match\"\n    },\n    {\n      \"task\": \"06_default_fallthrough\",\n      \"pass\": true,\n      \"detail\": \"exact match\"\n    },\n    {\n      \"task\": \"07_method_reads_shadow\",\n      \"pass\": true,\n      \"detail\": \"exact match\"\n    },\n    {\n      \"task\": \"08_nested_two_shadows\",\n      \"pass\": true,\n      \"detail\": \"exact match\"\n    },\n    {\n      \"task\": \"09_pep695_type_param\",\n      \"pass\": true,\n      \"detail\": \"exact match\"\n    },\n    {\n      \"task\": \"10_walrus_and_default\",\n      \"pass\": true,\n      \"detail\": \"exact match\"\n    }\n  ],\n  \"pass_count\": 10,\n  \"total\": 10\n}\n";
+const buf = document.getElementById('buf');
+const term = document.getElementById('term');
+async function sleep(ms){return new Promise(r=>setTimeout(r,ms));}
+(async()=>{
+  await sleep(800);
+  let i = 0;
+  // Type command portions slower: detect "$ " regions
+  while (i < lines.length) {
+    const ch = lines[i];
+    buf.textContent += ch;
+    i += 1;
+    term.scrollTop = term.scrollHeight;
+    // Slow for command lines (after $ until newline)
+    const lastDollar = buf.textContent.lastIndexOf('$ ');
+    const afterDollar = lastDollar >= 0 && !buf.textContent.slice(lastDollar).includes('\n');
+    // Actually check from last $
+    let slow = false;
+    const idx = buf.textContent.lastIndexOf('$ ');
+    if (idx >= 0 && !buf.textContent.slice(idx+2).includes('\n') && buf.textContent.slice(idx+2).length < 80) slow = true;
+    await sleep(slow ? (22+Math.random()*30) : (ch === '\n' ? 35 : (4+Math.random()*8)));
+  }
+  window.__done = true;
+  await sleep(4500);
+})();
+</script>
+</body></html>

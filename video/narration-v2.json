@@ -1,0 +1,8 @@
+[
+  ["vo0", "Frontier models still fail plain Python — not olympiad puzzles, the class body."],
+  ["vo1", "On the live results page, PyScope shows the hardened LEGB matrix: ten traps, automatic graders, measured pass at one."],
+  ["vo2", "Judges can reproduce without keys. Unittest passes. The oracle grader prints ten of ten."],
+  ["vo3", "Wonder scores about seven percent. Spark thirteen. Beam seventy-seven. Soft suites were too easy — we hardened until models all-failed."],
+  ["vo4", "Listcomps skip class scope. Later assigns make earlier reads NameError. Walrus in a class is SyntaxError."],
+  ["vo5", "Repo, results page, and this walkthrough. PyScope by Green Robin Labs for the micro1 Eval Hackathon."]
+]

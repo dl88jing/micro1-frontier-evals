@@ -18,7 +18,7 @@ Protocol: temperature 0, **3 trials / task / model**, report **pass@1** (mean tr
 
 Nebius Token Factory key is only on Vercel as a redacted secret and was **not** used for the submitted matrix.
 
-Live results: [pyscope-evals.vercel.app](https://pyscope-evals.vercel.app) · Full matrix: [`results/RESULTS.md`](results/RESULTS.md) · Demo + zip: [GitHub Releases v1.1.0](https://github.com/dl88jing/micro1-frontier-evals/releases/tag/v1.1.0)
+Live results: [pyscope-evals.vercel.app](https://pyscope-evals.vercel.app) · Full matrix: [`results/RESULTS.md`](results/RESULTS.md) · Demo video (v2 screen recording): [pyscope-demo-v2.mp4](https://github.com/dl88jing/micro1-frontier-evals/releases/download/v1.2.0/pyscope-demo-v2.mp4) · Submitted zip+demo: [v1.1.0](https://github.com/dl88jing/micro1-frontier-evals/releases/tag/v1.1.0)
 
 ## For judges
 

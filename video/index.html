@@ -1,61 +1,47 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=1920, height=1080">
+<!doctype html>
+<html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=1920, height=1080"/>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:1920px;height:1080px;overflow:hidden;background:#07090f}
-#root{width:1920px;height:1080px;position:relative;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#e8ecf7}
-.scene{position:absolute;inset:0;background:#07090f}
-.shot{position:absolute;left:0;top:0;width:1920px;height:1080px;object-fit:cover}
-.badge{position:absolute;left:100px;bottom:60px;font-size:22px;color:#9299a8;letter-spacing:.04em}
+#root{width:1920px;height:1080px;position:relative;font-family:"IBM Plex Sans",system-ui,sans-serif;color:#e8ecf7}
+video.clip, img.card-img{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;background:#000}
+.overlay-bar{position:absolute;left:0;right:0;bottom:0;height:96px;background:linear-gradient(transparent,rgba(7,9,15,.92));
+  display:flex;align-items:flex-end;padding:0 48px 28px;gap:18px;z-index:5;pointer-events:none}
+.pill{background:rgba(18,22,36,.92);border:1px solid #2a3150;border-radius:999px;padding:12px 24px;font-size:24px;font-weight:600;max-width:1400px}
+.badge{margin-left:auto;font-size:18px;color:#9aa3b8;font-weight:500}
+.live-dot{width:10px;height:10px;border-radius:50%;background:#a78bfa;box-shadow:0 0 12px #a78bfa;margin-right:8px;display:inline-block}
 </style></head><body>
-<div id="root" data-composition-id="main" data-start="0" data-duration="63.669" data-width="1920" data-height="1080">
-<section id="s0" class="clip scene" data-start="0.000" data-duration="5.511" data-track-index="0">
-<img class="shot" src="assets/01-hook.png" alt="">
-<div class="badge">PyScope · micro1 Eval Hackathon · Hook</div>
-</section>
-<section id="s1" class="clip scene" data-start="5.511" data-duration="8.433" data-track-index="0">
-<img class="shot" src="assets/02-suite.png" alt="">
-<div class="badge">PyScope · micro1 Eval Hackathon · Suite</div>
-</section>
-<section id="s2" class="clip scene" data-start="13.944" data-duration="7.153" data-track-index="0">
-<img class="shot" src="assets/03-listcomp.png" alt="">
-<div class="badge">PyScope · micro1 Eval Hackathon · Listcomp</div>
-</section>
-<section id="s3" class="clip scene" data-start="21.097" data-duration="8.796" data-track-index="0">
-<img class="shot" src="assets/04-nameerror.png" alt="">
-<div class="badge">PyScope · micro1 Eval Hackathon · NameError</div>
-</section>
-<section id="s4" class="clip scene" data-start="29.893" data-duration="9.543" data-track-index="0">
-<img class="shot" src="assets/05-bind.png" alt="">
-<div class="badge">PyScope · micro1 Eval Hackathon · Bindings</div>
-</section>
-<section id="s5" class="clip scene" data-start="39.436" data-duration="18.808" data-track-index="0">
-<img class="shot" src="assets/06-results.png" alt="">
-<div class="badge">PyScope · micro1 Eval Hackathon · Results</div>
-</section>
-<section id="s6" class="clip scene" data-start="58.244" data-duration="5.425" data-track-index="0">
-<img class="shot" src="assets/07-cta.png" alt="">
-<div class="badge">PyScope · micro1 Eval Hackathon · CTA</div>
-</section>
-<audio id="vo" src="assets/audio/narration.wav" data-start="0" data-duration="63.669" data-track-index="1"></audio>
-</div>
+<div id="root" data-composition-id="main" data-start="0" data-duration="110.82" data-width="1920" data-height="1080" data-fps="30">
+<img id="s0" class="clip card-img" src="assets/cards/title.png" alt="" data-start="0.000" data-duration="6.500" data-track-index="0"/>
+<div id="bar0" class="clip overlay-bar" data-start="0.000" data-duration="6.500" data-track-index="3"><div class="pill">PyScope · micro1 Eval Hackathon · LIVE</div><div class="badge">Demo walkthrough</div></div>
+<video id="v1" class="clip" src="assets/screen/page.mp4" muted playsinline data-start="6.500" data-duration="27.560" data-media-start="0" data-volume="0" data-track-index="0"></video>
+<div id="bar1" class="clip overlay-bar" data-start="6.500" data-duration="27.560" data-track-index="3"><div class="pill"><span class="live-dot"></span>Live results · pyscope-evals.vercel.app</div><div class="badge">Screen recording</div></div>
+<video id="v2" class="clip" src="assets/screen/terminal.mp4" muted playsinline data-start="34.060" data-duration="35.160" data-media-start="0" data-volume="0" data-track-index="0"></video>
+<div id="bar2" class="clip overlay-bar" data-start="34.060" data-duration="35.160" data-track-index="3"><div class="pill"><span class="live-dot"></span>CLI · unittest + graders/run_all.py · oracle 10/10</div><div class="badge">Screen recording</div></div>
+<video id="v3" class="clip" src="assets/screen/results.mp4" muted playsinline data-start="69.220" data-duration="23.600" data-media-start="0" data-volume="0" data-track-index="0"></video>
+<div id="bar3" class="clip overlay-bar" data-start="69.220" data-duration="23.600" data-track-index="3"><div class="pill"><span class="live-dot"></span>pass@1 · Wonder 6.7% · Spark 13.3% · Beam 76.7%</div><div class="badge">Screen recording</div></div>
+<img id="s4" class="clip card-img" src="assets/cards/arch.png" alt="" data-start="92.820" data-duration="9.500" data-track-index="0"/>
+<div id="bar4" class="clip overlay-bar" data-start="92.820" data-duration="9.500" data-track-index="3"><div class="pill">Architecture · Probe → harden → pass@1</div><div class="badge">PyScope</div></div>
+<img id="s5" class="clip card-img" src="assets/cards/outro.png" alt="" data-start="102.320" data-duration="8.500" data-track-index="0"/>
+<div id="bar5" class="clip overlay-bar" data-start="102.320" data-duration="8.500" data-track-index="3"><div class="pill">Try it · pyscope-evals.vercel.app</div><div class="badge">Green Robin Labs</div></div>
+<audio id="vo0" src="assets/audio/vo0.wav" data-start="0.000" data-duration="4.928" data-track-index="1" data-volume="1"></audio>
+<audio id="vo1" src="assets/audio/vo1.wav" data-start="6.500" data-duration="7.360" data-track-index="1" data-volume="1"></audio>
+<audio id="vo2" src="assets/audio/vo2.wav" data-start="34.060" data-duration="5.547" data-track-index="1" data-volume="1"></audio>
+<audio id="vo3" src="assets/audio/vo3.wav" data-start="69.220" data-duration="8.768" data-track-index="1" data-volume="1"></audio>
+<audio id="vo4" src="assets/audio/vo4.wav" data-start="92.820" data-duration="6.741" data-track-index="1" data-volume="1"></audio>
+<audio id="vo5" src="assets/audio/vo5.wav" data-start="102.320" data-duration="6.912" data-track-index="1" data-volume="1"></audio>
 <script>
+window.__timelines=window.__timelines||{};
 const tl=gsap.timeline({paused:true});
-tl.from("#s0 .shot",{opacity:0,scale:1.04,duration:0.8,ease:"power2.out"},0.050);
-tl.to("#s0 .shot",{scale:1.02,duration:4.511,ease:"none"},0.900);
-tl.from("#s1 .shot",{opacity:0,scale:1.04,duration:0.8,ease:"power2.out"},5.561);
-tl.to("#s1 .shot",{scale:1.02,duration:7.433,ease:"none"},6.411);
-tl.from("#s2 .shot",{opacity:0,scale:1.04,duration:0.8,ease:"power2.out"},13.994);
-tl.to("#s2 .shot",{scale:1.02,duration:6.153,ease:"none"},14.844);
-tl.from("#s3 .shot",{opacity:0,scale:1.04,duration:0.8,ease:"power2.out"},21.147);
-tl.to("#s3 .shot",{scale:1.02,duration:7.796,ease:"none"},21.997);
-tl.from("#s4 .shot",{opacity:0,scale:1.04,duration:0.8,ease:"power2.out"},29.943);
-tl.to("#s4 .shot",{scale:1.02,duration:8.543,ease:"none"},30.793);
-tl.from("#s5 .shot",{opacity:0,scale:1.04,duration:0.8,ease:"power2.out"},39.486);
-tl.to("#s5 .shot",{scale:1.02,duration:17.808,ease:"none"},40.336);
-tl.from("#s6 .shot",{opacity:0,scale:1.04,duration:0.8,ease:"power2.out"},58.294);
-tl.to("#s6 .shot",{scale:1.02,duration:4.425,ease:"none"},59.144);
-window.__timelines = window.__timelines || {};
-window.__timelines["main"]=tl;tl.seek(0);
-</script></body></html>
+tl.from("#bar0 .pill",{opacity:0,y:16,duration:0.6,ease:"power2.out"},0.200);
+tl.from("#bar1 .pill",{opacity:0,y:16,duration:0.5,ease:"power2.out"},6.650);
+tl.from("#bar2 .pill",{opacity:0,y:16,duration:0.5,ease:"power2.out"},34.210);
+tl.from("#bar3 .pill",{opacity:0,y:16,duration:0.5,ease:"power2.out"},69.370);
+tl.from("#bar4 .pill",{opacity:0,y:16,duration:0.5,ease:"power2.out"},92.970);
+tl.from("#bar5 .pill",{opacity:0,y:16,duration:0.5,ease:"power2.out"},102.470);
+window.__timelines["main"]=tl;
+</script>
+</div></body></html>

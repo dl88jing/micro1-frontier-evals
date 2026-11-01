@@ -5,5 +5,11 @@
   "scripts": {
     "render": "npx --yes hyperframes@0.8.60 render",
     "check": "npx --yes hyperframes@0.8.60 check"
-  }
+  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
